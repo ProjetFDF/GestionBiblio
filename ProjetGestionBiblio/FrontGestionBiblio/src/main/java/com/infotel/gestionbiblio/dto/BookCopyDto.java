@@ -2,25 +2,21 @@ package com.infotel.gestionbiblio.dto;
 
 import java.util.List;
 
-import com.infotel.gestionbiblio.entity.Book;
-import com.infotel.gestionbiblio.entity.BookBasket;
-import com.infotel.gestionbiblio.entity.Bookshelf;
-import com.infotel.gestionbiblio.entity.Borrow;
 
 public class BookCopyDto {
 	private int idBookCopy;
 	private String bookCopyTitle;
-	private Bookshelf bookshelf;
-	private List<BookBasket> bookBaskets;
-	private Book book;
-	List<Borrow> borrows;
+	private Integer bookshelf;
+	private List<Integer> bookBaskets;
+	private Integer book;
+	List<Integer> borrows;
 	
 	public BookCopyDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BookCopyDto(String bookCopyTitle, Bookshelf bookshelf, List<BookBasket> bookBaskets, Book book,
-			List<Borrow> borrows) {
+	public BookCopyDto(String bookCopyTitle, Integer bookshelf, List<Integer> bookBaskets, Integer book,
+			List<Integer> borrows) {
 		this.bookCopyTitle = bookCopyTitle;
 		this.bookshelf = bookshelf;
 		this.bookBaskets = bookBaskets;
@@ -28,7 +24,7 @@ public class BookCopyDto {
 		this.borrows = borrows;
 	}
 
-	public BookCopyDto(String bookCopyTitle, Bookshelf bookshelf, Book book) {
+	public BookCopyDto(String bookCopyTitle, Integer bookshelf, Integer book) {
 		this.bookCopyTitle = bookCopyTitle;
 		this.bookshelf = bookshelf;
 		this.book = book;
@@ -50,35 +46,35 @@ public class BookCopyDto {
 		this.bookCopyTitle = bookCopyTitle;
 	}
 
-	public Bookshelf getBookshelf() {
+	public Integer getBookshelf() {
 		return bookshelf;
 	}
 
-	public void setBookshelf(Bookshelf bookshelf) {
+	public void setBookshelf(Integer bookshelf) {
 		this.bookshelf = bookshelf;
 	}
 
-	public List<BookBasket> getBookBaskets() {
+	public List<Integer> getBookBaskets() {
 		return bookBaskets;
 	}
 
-	public void setBookBaskets(List<BookBasket> bookBaskets) {
+	public void setBookBaskets(List<Integer> bookBaskets) {
 		this.bookBaskets = bookBaskets;
 	}
 
-	public Book getBook() {
+	public Integer getBook() {
 		return book;
 	}
 
-	public void setBook(Book book) {
+	public void setBook(Integer book) {
 		this.book = book;
 	}
 
-	public List<Borrow> getBorrows() {
+	public List<Integer> getBorrows() {
 		return borrows;
 	}
 
-	public void setBorrows(List<Borrow> borrows) {
+	public void setBorrows(List<Integer> borrows) {
 		this.borrows = borrows;
 	}
 	

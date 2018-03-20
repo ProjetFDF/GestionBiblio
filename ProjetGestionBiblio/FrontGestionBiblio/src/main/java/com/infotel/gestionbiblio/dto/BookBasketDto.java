@@ -10,22 +10,22 @@ public class BookBasketDto {
 	private int bookBasketId;
 	private Date bookBasketCreationDate;
 	private Date bookBasketDeliveryDate;
-	private List<BookCopy> bookBasketBookCopy;
-	private Member member;
+	private List<Integer> bookBasketBookCopy;
+	private Integer member;
 	
 	public BookBasketDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BookBasketDto(Date bookBasketCreationDate, Date bookBasketDeliveryDate, List<BookCopy> bookBasketBookCopy,
-			Member member) {
+	public BookBasketDto(Date bookBasketCreationDate, Date bookBasketDeliveryDate, List<Integer> bookBasketBookCopy,
+			Integer member) {
 		this.bookBasketCreationDate = bookBasketCreationDate;
 		this.bookBasketDeliveryDate = bookBasketDeliveryDate;
 		this.bookBasketBookCopy = bookBasketBookCopy;
 		this.member = member;
 	}
 
-	public BookBasketDto(Date bookBasketCreationDate, Date bookBasketDeliveryDate, Member member) {
+	public BookBasketDto(Date bookBasketCreationDate, Date bookBasketDeliveryDate, Integer member) {
 		this.bookBasketCreationDate = bookBasketCreationDate;
 		this.bookBasketDeliveryDate = bookBasketDeliveryDate;
 		this.member = member;
@@ -55,19 +55,19 @@ public class BookBasketDto {
 		this.bookBasketDeliveryDate = bookBasketDeliveryDate;
 	}
 
-	public List<BookCopy> getBookBasketBookCopy() {
+	public List<Integer> getBookBasketBookCopy() {
 		return bookBasketBookCopy;
 	}
 
-	public void setBookBasketBookCopy(List<BookCopy> bookBasketBookCopy) {
+	public void setBookBasketBookCopy(List<Integer> bookBasketBookCopy) {
 		this.bookBasketBookCopy = bookBasketBookCopy;
 	}
 
-	public Member getMember() {
+	public Integer getMember() {
 		return member;
 	}
 
-	public void setMember(Member member) {
+	public void setMember(Integer member) {
 		this.member = member;
 	}
 	

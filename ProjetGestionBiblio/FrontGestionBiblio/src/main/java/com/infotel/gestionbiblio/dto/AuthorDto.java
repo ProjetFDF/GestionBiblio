@@ -1,25 +1,22 @@
 package com.infotel.gestionbiblio.dto;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import com.infotel.gestionbiblio.entity.Book;
 
 public class AuthorDto {
 
 	private int authorId;
 	private String authorLastname; 
 	private String authorFirstname;
-	private List<Book> book = new ArrayList<Book>();
+	private List<Integer> bookIds;
 	
 	public AuthorDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AuthorDto(String authorLastname, String authorFirstname, List<Book> book) {
+	public AuthorDto(String authorLastname, String authorFirstname, List<Integer> bookIds) {
 		this.authorLastname = authorLastname;
 		this.authorFirstname = authorFirstname;
-		this.book = book;
+		this.bookIds = bookIds;
 	}
 
 	public AuthorDto(String authorLastname, String authorFirstname) {
@@ -43,12 +40,12 @@ public class AuthorDto {
 		this.authorFirstname = authorFirstname;
 	}
 
-	public List<Book> getBook() {
-		return book;
+	public List<Integer> getBookIds() {
+		return bookIds;
 	}
 
-	public void setBook(List<Book> book) {
-		this.book = book;
+	public void setBookIds(List<Integer> bookIds) {
+		this.bookIds = bookIds;
 	}
 
 	public int getAuthorId() {

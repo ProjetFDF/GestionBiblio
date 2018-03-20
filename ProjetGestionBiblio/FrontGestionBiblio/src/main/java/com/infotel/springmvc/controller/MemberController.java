@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,7 +50,7 @@ public class MemberController {
 		for (int bookBasketId : memberDto.getBookBasketsIds()) {
 			bookBaskets.add(bookBasketService.getById(bookBasketId));
 		}
-		member.setBookBasket(bookBaskets);
+		member.setBookBaskets(bookBaskets);
 
 		List<Borrow> borrows = new ArrayList<Borrow>();
 		for (int borrowId : memberDto.getBorrowsIds()) {
@@ -74,7 +74,7 @@ public class MemberController {
 		for (int bookBasketId : memberDto.getBookBasketsIds()) {
 			bookBaskets.add(bookBasketService.getById(bookBasketId));
 		}
-		member.setBookBasket(bookBaskets);
+		member.setBookBaskets(bookBaskets);
 
 		List<Borrow> borrows = new ArrayList<Borrow>();
 		for (int borrowId : memberDto.getBorrowsIds()) {
@@ -87,7 +87,7 @@ public class MemberController {
 		memberService.update(member);
 	}
 
- /*   @GetMapping("/getlist")
+    @GetMapping("/getlist")
 	public List<MemberDto> getMembers() {
 		List<MemberDto> viewMembers = new ArrayList<MemberDto>();
 
@@ -95,25 +95,24 @@ public class MemberController {
 		
 		System.out.println(members);
 
-		for (Member member : members) {
-			List<Integer> auhtorIds = new ArrayList<Integer>();
-
-			for (Author author : member.getAuthor()) {
-				auhtorIds.add(author.getAuthorId());
+		for (Member member : members) 
+		{
+			List<Integer> bookBasketsIds = new ArrayList<Integer>();
+			for (BookBasket bookBasket : member.getBookBaskets()) {
+				bookBasketsIds.add(bookBasket.getBookBasketId());
 			}
-
-			List<Integer> MemberCopies = new ArrayList<Integer>();
-
-//			for (MemberCopy MemberCopy : Member.getMemberCopy()) {
-//				MemberCopies.add(MemberCopy.getIdMemberCopy());
-//			}
+			
+			List<Integer> borrowsIds = new ArrayList<Integer>();
+			for (Borrow borrow : member.getBorrows()) {
+				borrowsIds.add(borrow.getIdBorrow());
+			}
 			
 			viewMembers.add(new MemberDto());
 		}
 
 		return viewMembers;
 	}
-    */
+    
 	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
 	public Resultat loginPage(@RequestBody IndentifiantsVM identifiant) 
 	{

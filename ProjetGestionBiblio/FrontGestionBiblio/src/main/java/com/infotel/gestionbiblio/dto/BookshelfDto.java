@@ -2,21 +2,20 @@ package com.infotel.gestionbiblio.dto;
 
 import java.util.List;
 
-import com.infotel.gestionbiblio.entity.BookCopy;
 
 public class BookshelfDto {
 	private int bookshelfId;
 	private String bookshelfName;
 	private String bookshelfDescription;
 	private int bookNumber;
-	private List<BookCopy> bookshelfBookCopy;
+	private List<Integer> bookshelfBookCopy;
 	
 	public BookshelfDto() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public BookshelfDto(String bookshelfName, String bookshelfDescription, int bookNumber,
-			List<BookCopy> bookshelfBookCopy) {
+			List<Integer> bookshelfBookCopy) {
 		this.bookshelfName = bookshelfName;
 		this.bookshelfDescription = bookshelfDescription;
 		this.bookNumber = bookNumber;
@@ -61,11 +60,11 @@ public class BookshelfDto {
 		this.bookNumber = bookNumber;
 	}
 
-	public List<BookCopy> getBookshelfBookCopy() {
+	public List<Integer> getBookshelfBookCopy() {
 		return bookshelfBookCopy;
 	}
 
-	public void setBookshelfBookCopy(List<BookCopy> bookshelfBookCopy) {
+	public void setBookshelfBookCopy(List<Integer> bookshelfBookCopy) {
 		this.bookshelfBookCopy = bookshelfBookCopy;
 	}
 	

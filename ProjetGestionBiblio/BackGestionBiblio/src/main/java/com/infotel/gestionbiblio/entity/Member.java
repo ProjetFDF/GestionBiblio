@@ -24,12 +24,12 @@ public class Member  implements Serializable
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idMember")
 	private int idMember;
-	private String memberLastname, memberFirstname;
+	private String lastname, firstname;
 	
 	@Column(unique=true)
-	private String  memberEmail;
+	private String  email;
 	
-	private String memberPassword, memberAddress, memberCity,
+	private String password, address, city,
 			memberPostalCode, memberPhone;
 	
 	private boolean administrateur=false;
@@ -49,12 +49,12 @@ public class Member  implements Serializable
 			boolean administrateur, List<BookBasket> bookBasket, List<Borrow> borrows,
 			List<Registration> registrations) {
 		super();
-		this.memberLastname = memberLastname;
-		this.memberFirstname = memberFirstname;
-		this.memberEmail = memberEmail;
-		this.memberPassword = memberPassword;
-		this.memberAddress = memberAddress;
-		this.memberCity = memberCity;
+		this.lastname = memberLastname;
+		this.firstname = memberFirstname;
+		this.email = memberEmail;
+		this.password = memberPassword;
+		this.address = memberAddress;
+		this.city = memberCity;
 		this.memberPostalCode = memberPostalCode;
 		this.memberPhone = memberPhone;
 		this.administrateur = administrateur;
@@ -65,62 +65,70 @@ public class Member  implements Serializable
 	public Member(String memberLastname, String memberFirstname, String memberEmail, String memberPassword,
 			String memberAddress, String memberCity, String memberPostalCode, String memberPhone) 
 	{
-		this.memberLastname = memberLastname;
-		this.memberFirstname = memberFirstname;
-		this.memberEmail = memberEmail;
-		this.memberPassword = memberPassword;
-		this.memberAddress = memberAddress;
-		this.memberCity = memberCity;
+		this.lastname = memberLastname;
+		this.firstname = memberFirstname;
+		this.email = memberEmail;
+		this.password = memberPassword;
+		this.address = memberAddress;
+		this.city = memberCity;
 		this.memberPostalCode = memberPostalCode;
 		this.memberPhone = memberPhone;
 	}
 
-	public String getMemberLastname() {
-		return memberLastname;
+	public int getIdMember() {
+		return idMember;
 	}
 
-	public void setMemberLastname(String memberLastname) {
-		this.memberLastname = memberLastname;
+	public void setIdMember(int idMember) {
+		this.idMember = idMember;
 	}
 
-	public String getMemberFirstname() {
-		return memberFirstname;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setMemberFirstname(String memberFirstname) {
-		this.memberFirstname = memberFirstname;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
-	public String getMemberEmail() {
-		return memberEmail;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setMemberEmail(String memberEmail) {
-		this.memberEmail = memberEmail;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getMemberPassword() {
-		return memberPassword;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMemberPassword(String memberPassword) {
-		this.memberPassword = memberPassword;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getMemberAddress() {
-		return memberAddress;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setMemberAddress(String memberAddress) {
-		this.memberAddress = memberAddress;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public String getMemberCity() {
-		return memberCity;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setMemberCity(String memberCity) {
-		this.memberCity = memberCity;
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public String getMemberPostalCode() {
@@ -147,14 +155,6 @@ public class Member  implements Serializable
 		this.administrateur = administrateur;
 	}
 
-	public List<BookBasket> getBookBasket() {
-		return bookBaskets;
-	}
-
-	public void setBookBasket(List<BookBasket> bookBaskets) {
-		this.bookBaskets = bookBaskets;
-	}
-
 	public List<Borrow> getBorrows() {
 		return borrows;
 	}
@@ -163,19 +163,14 @@ public class Member  implements Serializable
 		this.borrows = borrows;
 	}
 
-
-
-	public int getIdMember() {
-		return idMember;
+	public List<BookBasket> getBookBaskets() {
+		return bookBaskets;
 	}
 
-	@Override
-	public String toString() {
-		return "Member [idMember=" + idMember + ", memberLastname=" + memberLastname + ", memberFirstname="
-				+ memberFirstname + ", memberEmail=" + memberEmail + ", memberPassword=" + memberPassword
-				+ ", memberAddress=" + memberAddress + ", memberCity=" + memberCity + ", memberPostalCode="
-				+ memberPostalCode + ", memberPhone=" + memberPhone + ", administrateur=" + administrateur	+ "]";
+	public void setBookBaskets(List<BookBasket> bookBaskets) {
+		this.bookBaskets = bookBaskets;
 	}
+
 
 
 

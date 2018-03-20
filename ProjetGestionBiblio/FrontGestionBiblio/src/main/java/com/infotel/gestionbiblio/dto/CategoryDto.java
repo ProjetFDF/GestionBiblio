@@ -2,19 +2,18 @@ package com.infotel.gestionbiblio.dto;
 
 import java.util.List;
 
-import com.infotel.gestionbiblio.entity.Book;
 
 public class CategoryDto {
 	private int categoryId;
 	private String categoryName;
 	private String CategoryDescription;
-	private List<Book> bookCategory;
+	private List<Integer> bookCategory;
 	
 	public CategoryDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CategoryDto(String categoryName, String categoryDescription, List<Book> bookCategory) {
+	public CategoryDto(String categoryName, String categoryDescription, List<Integer> bookCategory) {
 		this.categoryName = categoryName;
 		CategoryDescription = categoryDescription;
 		this.bookCategory = bookCategory;
@@ -49,11 +48,11 @@ public class CategoryDto {
 		CategoryDescription = categoryDescription;
 	}
 
-	public List<Book> getBookCategory() {
+	public List<Integer> getBookCategory() {
 		return bookCategory;
 	}
 
-	public void setBookCategory(List<Book> bookCategory) {
+	public void setBookCategory(List<Integer> bookCategory) {
 		this.bookCategory = bookCategory;
 	}
 	

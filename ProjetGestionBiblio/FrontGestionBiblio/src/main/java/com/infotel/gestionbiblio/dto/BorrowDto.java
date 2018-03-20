@@ -1,34 +1,28 @@
 package com.infotel.gestionbiblio.dto;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import com.infotel.gestionbiblio.entity.BookCopy;
-import com.infotel.gestionbiblio.entity.Member;
 
 public class BorrowDto {
 	private Date borrowDate;
     private Date returnDate;
 	private int idBorrow;
-	private Member member;
-	private List<BookCopy> bookCopys=new ArrayList<>();
+	private Integer idBookCopy;
 	
 	public BorrowDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BorrowDto(Date borrowDate, Date returnDate, Member member, List<BookCopy> bookCopys) {
+	public BorrowDto(Date borrowDate, Date returnDate, Integer idBookCopy) {
 		this.borrowDate = borrowDate;
 		this.returnDate = returnDate;
-		this.member = member;
-		this.bookCopys = bookCopys;
+		this.idBookCopy = idBookCopy;
 	}
 
-	public BorrowDto(Date borrowDate, Date returnDate, Member member) {
+	public BorrowDto(Date borrowDate, Date returnDate) {
 		this.borrowDate = borrowDate;
 		this.returnDate = returnDate;
-		this.member = member;
+
 	}
 
 	public Date getBorrowDate() {
@@ -55,20 +49,12 @@ public class BorrowDto {
 		this.idBorrow = idBorrow;
 	}
 
-	public Member getMember() {
-		return member;
+	public Integer getIdBookCopy() {
+		return idBookCopy;
 	}
 
-	public void setMember(Member member) {
-		this.member = member;
-	}
-
-	public List<BookCopy> getBookCopys() {
-		return bookCopys;
-	}
-
-	public void setBookCopys(List<BookCopy> bookCopys) {
-		this.bookCopys = bookCopys;
+	public void setIdBookCopy(Integer idBookCopy) {
+		this.idBookCopy = idBookCopy;
 	}
 	
 	

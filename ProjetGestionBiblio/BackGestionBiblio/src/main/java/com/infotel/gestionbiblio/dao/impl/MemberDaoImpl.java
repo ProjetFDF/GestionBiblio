@@ -25,6 +25,7 @@ public class MemberDaoImpl extends CommonDaoImpl<Member> implements MemberDao {
 
 	@Override
 	public Member getObjectByName(String nom) {
+		@SuppressWarnings("rawtypes")
 		Query query = sessionFactory.getCurrentSession().createQuery("from Member where memberName=:name");
 		query.setParameter("name", nom);
 		member = (Member) query.uniqueResult();
@@ -37,7 +38,7 @@ public class MemberDaoImpl extends CommonDaoImpl<Member> implements MemberDao {
 		memberList = super.getList();
 		for (Member member : memberList) {
 			Hibernate.initialize(member.getBorrows());
-			Hibernate.initialize(member.getBookBasket());
+			Hibernate.initialize(member.getBookBaskets());
 		}
 		return memberList;
 	}
@@ -54,7 +55,7 @@ public class MemberDaoImpl extends CommonDaoImpl<Member> implements MemberDao {
 		if(member!=null)
 		{
 			Hibernate.initialize(member.getBorrows());
-			Hibernate.initialize(member.getBookBasket());
+			Hibernate.initialize(member.getBookBaskets());
 		}
 
 		return member;

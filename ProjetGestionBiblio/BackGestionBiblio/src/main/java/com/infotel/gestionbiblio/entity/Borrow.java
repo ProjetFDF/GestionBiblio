@@ -26,10 +26,7 @@ public class Borrow implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idBorrow;
-	/*
-	@ManyToOne
-    private Member member;
-    */
+
     @ManyToOne
     private BookCopy bookCopy;
 

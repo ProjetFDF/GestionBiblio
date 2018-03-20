@@ -3,26 +3,23 @@ package com.infotel.gestionbiblio.dto;
 import java.util.Date;
 import java.util.List;
 
-import com.infotel.gestionbiblio.entity.Library;
-import com.infotel.gestionbiblio.entity.Member;
-
 public class RegistrationDto {
 	private int registrationId;
 	private Date registrationDate;
-	private Member registrationMember;
-	private List<Library> libraries;
+	private Integer registrationMember;
+	private List<Integer> libraries;
 	
 	public RegistrationDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RegistrationDto(Date registrationDate, Member registrationMember, List<Library> libraries) {
+	public RegistrationDto(Date registrationDate, Integer registrationMember, List<Integer> libraries) {
 		this.registrationDate = registrationDate;
 		this.registrationMember = registrationMember;
 		this.libraries = libraries;
 	}
 
-	public RegistrationDto(Date registrationDate, Member registrationMember) {
+	public RegistrationDto(Date registrationDate, Integer registrationMember) {
 		this.registrationDate = registrationDate;
 		this.registrationMember = registrationMember;
 	}
@@ -43,19 +40,19 @@ public class RegistrationDto {
 		this.registrationDate = registrationDate;
 	}
 
-	public Member getRegistrationMember() {
+	public Integer getRegistrationMember() {
 		return registrationMember;
 	}
 
-	public void setRegistrationMember(Member registrationMember) {
+	public void setRegistrationMember(Integer registrationMember) {
 		this.registrationMember = registrationMember;
 	}
 
-	public List<Library> getLibraries() {
+	public List<Integer> getLibraries() {
 		return libraries;
 	}
 
-	public void setLibraries(List<Library> libraries) {
+	public void setLibraries(List<Integer> libraries) {
 		this.libraries = libraries;
 	}
 	

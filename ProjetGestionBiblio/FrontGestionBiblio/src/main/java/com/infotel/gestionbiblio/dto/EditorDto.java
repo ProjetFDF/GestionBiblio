@@ -2,19 +2,18 @@ package com.infotel.gestionbiblio.dto;
 
 import java.util.List;
 
-import com.infotel.gestionbiblio.entity.Book;
 
 public class EditorDto {
 	private int editorId;
 	private String editorName; 
 	private String editorAddress;
-	private List<Book> bookEditor;
+	private List<Integer> bookEditor;
 	
 	public EditorDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EditorDto(String editorName, String editorAddress, List<Book> bookEditor) {
+	public EditorDto(String editorName, String editorAddress, List<Integer> bookEditor) {
 		this.editorName = editorName;
 		this.editorAddress = editorAddress;
 		this.bookEditor = bookEditor;
@@ -49,11 +48,11 @@ public class EditorDto {
 		this.editorAddress = editorAddress;
 	}
 
-	public List<Book> getBookEditor() {
+	public List<Integer> getBookEditor() {
 		return bookEditor;
 	}
 
-	public void setBookEditor(List<Book> bookEditor) {
+	public void setBookEditor(List<Integer> bookEditor) {
 		this.bookEditor = bookEditor;
 	}
 	

@@ -2,23 +2,21 @@ package com.infotel.gestionbiblio.dto;
 
 import java.util.List;
 
-import com.infotel.gestionbiblio.entity.Book;
-import com.infotel.gestionbiblio.entity.Registration;
 
 public class LibraryDto {
 	private int idLibrary;
 	private int libraryCode;
 	private String libraryName; 
 	private String libraryAddress;
-	private List<Registration> registrations;
-	List<Book> books;
+	private List<Integer> registrations;
+	List<Integer> books;
 	
 	public LibraryDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public LibraryDto(int libraryCode, String libraryName, String libraryAddress, List<Registration> registrations,
-			List<Book> books) {
+	public LibraryDto(int libraryCode, String libraryName, String libraryAddress, List<Integer> registrations,
+			List<Integer> books) {
 		this.libraryCode = libraryCode;
 		this.libraryName = libraryName;
 		this.libraryAddress = libraryAddress;
@@ -64,19 +62,19 @@ public class LibraryDto {
 		this.libraryAddress = libraryAddress;
 	}
 
-	public List<Registration> getRegistrations() {
+	public List<Integer> getRegistrations() {
 		return registrations;
 	}
 
-	public void setRegistrations(List<Registration> registrations) {
+	public void setRegistrations(List<Integer> registrations) {
 		this.registrations = registrations;
 	}
 
-	public List<Book> getBooks() {
+	public List<Integer> getBooks() {
 		return books;
 	}
 
-	public void setBooks(List<Book> books) {
+	public void setBooks(List<Integer> books) {
 		this.books = books;
 	}
 	
