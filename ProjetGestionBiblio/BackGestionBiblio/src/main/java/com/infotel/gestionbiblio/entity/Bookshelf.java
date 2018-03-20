@@ -19,41 +19,48 @@ public class Bookshelf implements Serializable
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int bookshelfId;
-	private String bookshelfName, bookshelfDescription;
+	private int idBookshelf;
+	private String name, description;
 	private int bookNumber;
 	
 	@OneToMany(mappedBy = "bookshelf")
-	private List<BookCopy> bookshelfBookCopy;
+	private List<BookCopy> bookshelfBookCopys;
 
 	public Bookshelf() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bookshelf(String bookshelfName, String bookshelfDescription, int bookNumber,
-			List<BookCopy> bookshelfBookCopy) {
+	public Bookshelf(String name, String description, int bookNumber, List<BookCopy> bookshelfBookCopys) {
 		super();
-		this.bookshelfName = bookshelfName;
-		this.bookshelfDescription = bookshelfDescription;
+		this.name = name;
+		this.description = description;
 		this.bookNumber = bookNumber;
-		this.bookshelfBookCopy = bookshelfBookCopy;
+		this.bookshelfBookCopys = bookshelfBookCopys;
 	}
 
-	public String getBookshelfName() {
-		return bookshelfName;
+	public int getIdBookshelf() {
+		return idBookshelf;
 	}
 
-	public void setBookshelfName(String bookshelfName) {
-		this.bookshelfName = bookshelfName;
+	public void setIdBookshelf(int idBookshelf) {
+		this.idBookshelf = idBookshelf;
 	}
 
-	public String getBookshelfDescription() {
-		return bookshelfDescription;
+	public String getName() {
+		return name;
 	}
 
-	public void setBookshelfDescription(String bookshelfDescription) {
-		this.bookshelfDescription = bookshelfDescription;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public int getBookNumber() {
@@ -64,25 +71,13 @@ public class Bookshelf implements Serializable
 		this.bookNumber = bookNumber;
 	}
 
-	public List<BookCopy> getBookshelfBookCopy() {
-		return bookshelfBookCopy;
+	public List<BookCopy> getBookshelfBookCopys() {
+		return bookshelfBookCopys;
 	}
 
-	public void setBookshelfBookCopy(List<BookCopy> bookshelfBookCopy) {
-		this.bookshelfBookCopy = bookshelfBookCopy;
-	}
-
-	public int getBookshelfId() {
-		return bookshelfId;
-	}
-
-	@Override
-	public String toString() {
-		return "Bookshelf [bookshelfId=" + bookshelfId + ", bookshelfName=" + bookshelfName + ", bookshelfDescription="
-				+ bookshelfDescription + ", bookNumber=" + bookNumber + ", bookshelfBookCopy=" + bookshelfBookCopy
-				+ "]";
+	public void setBookshelfBookCopys(List<BookCopy> bookshelfBookCopys) {
+		this.bookshelfBookCopys = bookshelfBookCopys;
 	}
 
 	
-
 }

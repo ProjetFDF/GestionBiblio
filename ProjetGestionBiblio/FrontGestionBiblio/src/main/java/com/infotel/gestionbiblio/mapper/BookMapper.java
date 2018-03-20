@@ -43,7 +43,6 @@ public class BookMapper {
 			authors.add(authorService.getById(authorId));
 		}
 
-
 		Book book = new Book(bookDto.getISBN(), bookDto.getBookTitre(), bookDto.getBookDescription(),
 				bookDto.getImagePath(), bookDto.isPopularBook(), bookDto.isPeriodicBook(), bookDto.getBookPrice(),
 				bookDto.getPublicationDate());
@@ -64,7 +63,7 @@ public class BookMapper {
 
 		return new BookDto(book.getISBN(), book.getBookTitre(), book.getBookDescription(), book.getImagePath(),
 				book.isPopularBook(), book.isPeriodicBook(), book.getBookPrice(), book.getPublicationDate(),
-				book.getCategory().getCategoryId(), book.getEditor().getEditorId(),auhtorIds);
+				book.getCategory().getIdCategory(), book.getEditor().getIdEditor(),auhtorIds);
 	}
 
 }

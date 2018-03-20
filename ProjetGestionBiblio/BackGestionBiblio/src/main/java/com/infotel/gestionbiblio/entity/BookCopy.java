@@ -16,9 +16,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class BookCopy implements Serializable
 {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -82,14 +79,6 @@ public class BookCopy implements Serializable
 	public void setBook(Book book) {
 		this.book = book;
 	}
-
-/*	public Borrow getBorrow() {
-		return borrow;
-	}
-
-	public void setBorrows(Borrow borrow) {
-		this.borrow = borrow;
-	}*/
 
 	public int getIdBookCopy() {
 		return idBookCopy;

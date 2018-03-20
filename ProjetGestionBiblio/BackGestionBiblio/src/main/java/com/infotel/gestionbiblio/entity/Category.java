@@ -1,14 +1,10 @@
 package com.infotel.gestionbiblio.entity;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 
 @Entity
@@ -20,45 +16,43 @@ public class Category  implements Serializable
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int categoryId;
-	private String categoryName, categoryDescription;
+	private int idCategory;
+	private String name, description;
 
 	public Category() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Category(String categoryName, String categoryDescription) {
+	public Category(String name, String description) {
 		super();
-		this.categoryName = categoryName;
-		this.categoryDescription = categoryDescription;
+		this.name = name;
+		this.description = description;
 	}
 
-	public String getCategoryName() {
-		return this.categoryName;
+	public int getIdCategory() {
+		return idCategory;
 	}
 
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+	public void setIdCategory(int idCategory) {
+		this.idCategory = idCategory;
 	}
 
-	public String getCategoryDescription() {
-		return this.categoryDescription;
+	public String getName() {
+		return name;
 	}
 
-	public void setCategoryDescription(String categoryDescription) {
-		this.categoryDescription = categoryDescription;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getCategoryId() {
-		return categoryId;
+	public String getDescription() {
+		return description;
 	}
 
-	@Override
-	public String toString() {
-		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", CategoryDescription="
-				+ categoryDescription + "]";
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-
+	
 }

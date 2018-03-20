@@ -1,61 +1,44 @@
 package com.infotel.gestionbiblio.dto;
 
-import java.util.List;
 
 
 public class EditorDto {
-	private int editorId;
-	private String editorName; 
-	private String editorAddress;
-	private List<Integer> bookEditor;
+	private int idEditor;
+	private String name; 
+	private String address;
 	
 	public EditorDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EditorDto(String editorName, String editorAddress, List<Integer> bookEditor) {
-		this.editorName = editorName;
-		this.editorAddress = editorAddress;
-		this.bookEditor = bookEditor;
+	public EditorDto(String name, String address) {
+		super();
+		this.name = name;
+		this.address = address;
 	}
 
-	public EditorDto(String editorName, String editorAddress) {
-		this.editorName = editorName;
-		this.editorAddress = editorAddress;
+	public int getIdEditor() {
+		return idEditor;
 	}
 
-	public int getEditorId() {
-		return editorId;
+	public void setIdEditor(int idEditor) {
+		this.idEditor = idEditor;
 	}
 
-	public void setEditorId(int editorId) {
-		this.editorId = editorId;
+	public String getName() {
+		return name;
 	}
 
-	public String getEditorName() {
-		return editorName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setEditorName(String editorName) {
-		this.editorName = editorName;
+	public String getAddress() {
+		return address;
 	}
 
-	public String getEditorAddress() {
-		return editorAddress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public void setEditorAddress(String editorAddress) {
-		this.editorAddress = editorAddress;
-	}
-
-	public List<Integer> getBookEditor() {
-		return bookEditor;
-	}
-
-	public void setBookEditor(List<Integer> bookEditor) {
-		this.bookEditor = bookEditor;
-	}
-	
-	
-	
 }

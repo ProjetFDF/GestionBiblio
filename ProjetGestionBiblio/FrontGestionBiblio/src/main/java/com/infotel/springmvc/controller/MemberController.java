@@ -99,7 +99,7 @@ public class MemberController {
 		{
 			List<Integer> bookBasketsIds = new ArrayList<Integer>();
 			for (BookBasket bookBasket : member.getBookBaskets()) {
-				bookBasketsIds.add(bookBasket.getBookBasketId());
+				bookBasketsIds.add(bookBasket.getIdBookBasket());
 			}
 			
 			List<Integer> borrowsIds = new ArrayList<Integer>();

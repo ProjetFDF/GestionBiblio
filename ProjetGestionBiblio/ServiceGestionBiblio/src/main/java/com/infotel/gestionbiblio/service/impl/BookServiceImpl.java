@@ -78,7 +78,7 @@ public class BookServiceImpl implements BookService {
 
 		for (Book book : listBook) {
 			for (String id : listeIdCategory) {
-				if (book.getCategory().getCategoryId() == Integer.parseInt(id)) {
+				if (book.getCategory().getIdCategory() == Integer.parseInt(id)) {
 					listeFiltre.add(book);
 					continue;
 				}
@@ -93,7 +93,7 @@ public class BookServiceImpl implements BookService {
 
 		for (Book book : listBook) {
 			for (String id : listeIdEditor) {
-				if (book.getEditor().getEditorId() == Integer.parseInt(id)) {
+				if (book.getEditor().getIdEditor() == Integer.parseInt(id)) {
 					listeFiltre.add(book);
 					continue;
 				}

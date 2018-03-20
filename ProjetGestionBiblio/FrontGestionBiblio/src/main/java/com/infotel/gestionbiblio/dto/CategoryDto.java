@@ -1,60 +1,43 @@
 package com.infotel.gestionbiblio.dto;
 
-import java.util.List;
-
 
 public class CategoryDto {
-	private int categoryId;
-	private String categoryName;
-	private String CategoryDescription;
-	private List<Integer> bookCategory;
+	private int idCategory;
+	private String name;
+	private String description;
 	
 	public CategoryDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CategoryDto(String categoryName, String categoryDescription, List<Integer> bookCategory) {
-		this.categoryName = categoryName;
-		CategoryDescription = categoryDescription;
-		this.bookCategory = bookCategory;
+	public CategoryDto(String name, String description) {
+		super();
+		this.name = name;
+		this.description = description;
 	}
 
-	public CategoryDto(String categoryName, String categoryDescription) {
-		this.categoryName = categoryName;
-		CategoryDescription = categoryDescription;
+	public int getIdCategory() {
+		return idCategory;
 	}
 
-	public int getCategoryId() {
-		return categoryId;
+	public void setIdCategory(int idCategory) {
+		this.idCategory = idCategory;
 	}
 
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
+	public String getName() {
+		return name;
 	}
 
-	public String getCategoryName() {
-		return categoryName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+	public String getDescription() {
+		return description;
 	}
 
-	public String getCategoryDescription() {
-		return CategoryDescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public void setCategoryDescription(String categoryDescription) {
-		CategoryDescription = categoryDescription;
-	}
-
-	public List<Integer> getBookCategory() {
-		return bookCategory;
-	}
-
-	public void setBookCategory(List<Integer> bookCategory) {
-		this.bookCategory = bookCategory;
-	}
-	
-	
 }

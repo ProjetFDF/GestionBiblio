@@ -5,9 +5,9 @@ import java.util.List;
 
 public class LibraryDto {
 	private int idLibrary;
-	private int libraryCode;
-	private String libraryName; 
-	private String libraryAddress;
+	private int code;
+	private String name; 
+	private String address;
 	private List<Integer> registrations;
 	List<Integer> books;
 	
@@ -15,19 +15,13 @@ public class LibraryDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public LibraryDto(int libraryCode, String libraryName, String libraryAddress, List<Integer> registrations,
-			List<Integer> books) {
-		this.libraryCode = libraryCode;
-		this.libraryName = libraryName;
-		this.libraryAddress = libraryAddress;
+	public LibraryDto(int code, String name, String address, List<Integer> registrations, List<Integer> books) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.address = address;
 		this.registrations = registrations;
 		this.books = books;
-	}
-
-	public LibraryDto(int libraryCode, String libraryName, String libraryAddress) {
-		this.libraryCode = libraryCode;
-		this.libraryName = libraryName;
-		this.libraryAddress = libraryAddress;
 	}
 
 	public int getIdLibrary() {
@@ -38,28 +32,28 @@ public class LibraryDto {
 		this.idLibrary = idLibrary;
 	}
 
-	public int getLibraryCode() {
-		return libraryCode;
+	public int getCode() {
+		return code;
 	}
 
-	public void setLibraryCode(int libraryCode) {
-		this.libraryCode = libraryCode;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
-	public String getLibraryName() {
-		return libraryName;
+	public String getName() {
+		return name;
 	}
 
-	public void setLibraryName(String libraryName) {
-		this.libraryName = libraryName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLibraryAddress() {
-		return libraryAddress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setLibraryAddress(String libraryAddress) {
-		this.libraryAddress = libraryAddress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public List<Integer> getRegistrations() {
@@ -77,6 +71,6 @@ public class LibraryDto {
 	public void setBooks(List<Integer> books) {
 		this.books = books;
 	}
-	
+
 	
 }

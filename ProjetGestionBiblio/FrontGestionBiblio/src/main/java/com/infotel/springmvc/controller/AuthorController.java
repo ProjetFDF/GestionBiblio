@@ -26,19 +26,19 @@ public class AuthorController {
 	AuthorMapper authorMapper;
 
 	@PostMapping("/add")
-	public void addBook(@RequestBody AuthorDto auhtorDto) {
+	public void addAuthor(@RequestBody AuthorDto auhtorDto) {
 
 		authorService.insert(authorMapper.dtoToAuthor(auhtorDto));
 	}
 
 	@PostMapping("/update")
-	public void updateBook(@RequestBody AuthorDto authorDto) 
+	public void updateAuthor(@RequestBody AuthorDto authorDto) 
 	{
 		authorService.update(authorMapper.dtoToAuthor(authorDto));
 	}
 
 	@GetMapping("/getlist")
-	public List<AuthorDto> getBooks() 
+	public List<AuthorDto> getAuthors() 
 	{
 		List<AuthorDto> viewAuthors = new ArrayList<AuthorDto>();
 
@@ -53,7 +53,7 @@ public class AuthorController {
 	}
 	
 	@GetMapping("/get")
-	public AuthorDto getBook(int id) 
+	public AuthorDto getAuthor(int id) 
 	{
 		Author author = authorService.getById(id);
 
@@ -63,7 +63,7 @@ public class AuthorController {
 	}
 	
 	@GetMapping("/delete")
-	public void deleteBook(int id) 
+	public void deleteAuthor(int id) 
 	{
 		Author author = authorService.getById(id);
 

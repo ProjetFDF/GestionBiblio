@@ -1,14 +1,10 @@
 package com.infotel.gestionbiblio.entity;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 
 @Entity
@@ -19,9 +15,9 @@ public class Editor implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int editorId;
-	private String editorName, editorAddress;
-
+	private int idEditor;
+	private String name; 
+	private String address;
 
 
 	public Editor() {
@@ -29,43 +25,34 @@ public class Editor implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Editor(String editorName, String editorAddress) {
+	public Editor(String name, String address) {
 		super();
-		this.editorName = editorName;
-		this.editorAddress = editorAddress;
+		this.name = name;
+		this.address = address;
 	}
 
-	public String getEditorName() {
-		return editorName;
+	public int getIdEditor() {
+		return idEditor;
 	}
 
-	public void setEditorName(String editorName) {
-		this.editorName = editorName;
+	public void setIdEditor(int idEditor) {
+		this.idEditor = idEditor;
 	}
 
-	public String getEditorAddress() {
-		return editorAddress;
+	public String getName() {
+		return name;
 	}
 
-	public void setEditorAddress(String editorAddress) {
-		this.editorAddress = editorAddress;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getAddress() {
+		return address;
 	}
 
-	public int getEditorId() {
-		return editorId;
+	public void setAddress(String address) {
+		this.address = address;
 	}
-
-	@Override
-	public String toString() {
-		return "Editor [editorId=" + editorId + ", editorName=" + editorName + ", editorAddress=" + editorAddress
-				+  "]";
-	}
-
-
 
 }

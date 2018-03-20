@@ -4,11 +4,11 @@ import java.util.List;
 
 
 public class BookshelfDto {
-	private int bookshelfId;
-	private String bookshelfName;
-	private String bookshelfDescription;
+	private int idBookshelf;
+	private String name;
+	private String description;
 	private int bookNumber;
-	private List<Integer> bookshelfBookCopy;
+	private List<Integer> bookCopyIds;
 	
 	public BookshelfDto() {
 		// TODO Auto-generated constructor stub
@@ -16,40 +16,40 @@ public class BookshelfDto {
 
 	public BookshelfDto(String bookshelfName, String bookshelfDescription, int bookNumber,
 			List<Integer> bookshelfBookCopy) {
-		this.bookshelfName = bookshelfName;
-		this.bookshelfDescription = bookshelfDescription;
+		this.name = bookshelfName;
+		this.description = bookshelfDescription;
 		this.bookNumber = bookNumber;
-		this.bookshelfBookCopy = bookshelfBookCopy;
+		this.bookCopyIds = bookshelfBookCopy;
 	}
 
 	public BookshelfDto(String bookshelfName, String bookshelfDescription, int bookNumber) {
-		this.bookshelfName = bookshelfName;
-		this.bookshelfDescription = bookshelfDescription;
+		this.name = bookshelfName;
+		this.description = bookshelfDescription;
 		this.bookNumber = bookNumber;
 	}
 
-	public int getBookshelfId() {
-		return bookshelfId;
+	public int getIdBookshelf() {
+		return idBookshelf;
 	}
 
-	public void setBookshelfId(int bookshelfId) {
-		this.bookshelfId = bookshelfId;
+	public void setIdBookshelf(int idBookshelf) {
+		this.idBookshelf = idBookshelf;
 	}
 
-	public String getBookshelfName() {
-		return bookshelfName;
+	public String getName() {
+		return name;
 	}
 
-	public void setBookshelfName(String bookshelfName) {
-		this.bookshelfName = bookshelfName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getBookshelfDescription() {
-		return bookshelfDescription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setBookshelfDescription(String bookshelfDescription) {
-		this.bookshelfDescription = bookshelfDescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public int getBookNumber() {
@@ -60,13 +60,13 @@ public class BookshelfDto {
 		this.bookNumber = bookNumber;
 	}
 
-	public List<Integer> getBookshelfBookCopy() {
-		return bookshelfBookCopy;
+	public List<Integer> getBookCopyIds() {
+		return bookCopyIds;
 	}
 
-	public void setBookshelfBookCopy(List<Integer> bookshelfBookCopy) {
-		this.bookshelfBookCopy = bookshelfBookCopy;
+	public void setBookCopyIds(List<Integer> bookCopyIds) {
+		this.bookCopyIds = bookCopyIds;
 	}
-	
+
 	
 }

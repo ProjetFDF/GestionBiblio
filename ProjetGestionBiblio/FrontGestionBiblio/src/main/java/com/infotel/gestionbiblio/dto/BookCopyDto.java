@@ -9,25 +9,16 @@ public class BookCopyDto {
 	private Integer bookshelf;
 	private List<Integer> bookBaskets;
 	private Integer book;
-	List<Integer> borrows;
 	
 	public BookCopyDto() {
-		// TODO Auto-generated constructor stub
 	}
 
-	public BookCopyDto(String bookCopyTitle, Integer bookshelf, List<Integer> bookBaskets, Integer book,
-			List<Integer> borrows) {
+	public BookCopyDto(String bookCopyTitle, Integer bookshelf, List<Integer> bookBaskets, Integer book) {
 		this.bookCopyTitle = bookCopyTitle;
 		this.bookshelf = bookshelf;
 		this.bookBaskets = bookBaskets;
 		this.book = book;
-		this.borrows = borrows;
-	}
 
-	public BookCopyDto(String bookCopyTitle, Integer bookshelf, Integer book) {
-		this.bookCopyTitle = bookCopyTitle;
-		this.bookshelf = bookshelf;
-		this.book = book;
 	}
 
 	public int getIdBookCopy() {
@@ -68,14 +59,6 @@ public class BookCopyDto {
 
 	public void setBook(Integer book) {
 		this.book = book;
-	}
-
-	public List<Integer> getBorrows() {
-		return borrows;
-	}
-
-	public void setBorrows(List<Integer> borrows) {
-		this.borrows = borrows;
 	}
 	
 }

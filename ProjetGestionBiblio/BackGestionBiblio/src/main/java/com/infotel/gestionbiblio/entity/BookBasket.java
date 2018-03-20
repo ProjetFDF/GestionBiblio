@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -21,56 +20,53 @@ public class BookBasket implements Serializable
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int bookBasketId;
-	private Date bookBasketCreationDate, bookBasketDeliveryDate;
+	private int idBookBasket;
+	private Date creationDate, deliveryDate;
 
 	@ManyToMany(mappedBy = "bookBaskets")
-	private List<BookCopy> bookBasketBookCopy;
+	private List<BookCopy> bookCopys;
 
 	public BookBasket() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public BookBasket(Date bookBasketCreationDate, Date bookBasketDeliveryDate, List<BookCopy> bookBasketBookCopy) {
+	public BookBasket(Date creationDate, Date deliveryDate, List<BookCopy> bookCopys) {
 		super();
-		this.bookBasketCreationDate = bookBasketCreationDate;
-		this.bookBasketDeliveryDate = bookBasketDeliveryDate;
-		this.bookBasketBookCopy = bookBasketBookCopy;
+		this.creationDate = creationDate;
+		this.deliveryDate = deliveryDate;
+		this.bookCopys = bookCopys;
 	}
 
-	public Date getBookBasketCreationDate() {
-		return bookBasketCreationDate;
+	public Date getCreationDate() {
+		return creationDate;
 	}
 
-	public void setBookBasketCreationDate(Date bookBasketCreationDate) {
-		this.bookBasketCreationDate = bookBasketCreationDate;
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
 	}
 
-	public Date getBookBasketDeliveryDate() {
-		return bookBasketDeliveryDate;
+	public Date getDeliveryDate() {
+		return deliveryDate;
 	}
 
-	public void setBookBasketDeliveryDate(Date bookBasketDeliveryDate) {
-		this.bookBasketDeliveryDate = bookBasketDeliveryDate;
+	public void setDeliveryDate(Date deliveryDate) {
+		this.deliveryDate = deliveryDate;
 	}
 
-	public List<BookCopy> getBookBasketBookCopy() {
-		return bookBasketBookCopy;
+	public List<BookCopy> getBookCopys() {
+		return bookCopys;
 	}
 
-	public void setBookBasketBookCopy(List<BookCopy> bookBasketBookCopy) {
-		this.bookBasketBookCopy = bookBasketBookCopy;
+	public void setBookCopys(List<BookCopy> bookCopys) {
+		this.bookCopys = bookCopys;
 	}
 
-	public int getBookBasketId() {
-		return bookBasketId;
+	public int getIdBookBasket() {
+		return idBookBasket;
 	}
 
-	@Override
-	public String toString() {
-		return "BookBasket [bookBasketId=" + bookBasketId + ", bookBasketCreationDate=" + bookBasketCreationDate
-				+ ", bookBasketDeliveryDate=" + bookBasketDeliveryDate + "]";
+	public void setIdBookBasket(int idBookBasket) {
+		this.idBookBasket = idBookBasket;
 	}
 
 	

@@ -1,60 +1,55 @@
 package com.infotel.gestionbiblio.dto;
 
 import java.util.Date;
-import java.util.List;
 
 public class RegistrationDto {
-	private int registrationId;
-	private Date registrationDate;
-	private Integer registrationMember;
-	private List<Integer> libraries;
+	private int idRegistration;
+	private Date date;
+	private Integer memberId;
+	private Integer libraryId;
 	
 	public RegistrationDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RegistrationDto(Date registrationDate, Integer registrationMember, List<Integer> libraries) {
-		this.registrationDate = registrationDate;
-		this.registrationMember = registrationMember;
-		this.libraries = libraries;
+	public RegistrationDto(Date date, Integer memberId, Integer libraryId) {
+		super();
+		this.date = date;
+		this.memberId = memberId;
+		this.libraryId = libraryId;
 	}
 
-	public RegistrationDto(Date registrationDate, Integer registrationMember) {
-		this.registrationDate = registrationDate;
-		this.registrationMember = registrationMember;
+	public int getIdRegistration() {
+		return idRegistration;
 	}
 
-	public int getRegistrationId() {
-		return registrationId;
+	public void setIdRegistration(int idRegistration) {
+		this.idRegistration = idRegistration;
 	}
 
-	public void setRegistrationId(int registrationId) {
-		this.registrationId = registrationId;
+	public Date getDate() {
+		return date;
 	}
 
-	public Date getRegistrationDate() {
-		return registrationDate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public void setRegistrationDate(Date registrationDate) {
-		this.registrationDate = registrationDate;
+	public Integer getMemberId() {
+		return memberId;
 	}
 
-	public Integer getRegistrationMember() {
-		return registrationMember;
+	public void setMemberId(Integer memberId) {
+		this.memberId = memberId;
 	}
 
-	public void setRegistrationMember(Integer registrationMember) {
-		this.registrationMember = registrationMember;
+	public Integer getLibraryId() {
+		return libraryId;
 	}
 
-	public List<Integer> getLibraries() {
-		return libraries;
+	public void setLibraryId(Integer libraryId) {
+		this.libraryId = libraryId;
 	}
 
-	public void setLibraries(List<Integer> libraries) {
-		this.libraries = libraries;
-	}
-	
 	
 }

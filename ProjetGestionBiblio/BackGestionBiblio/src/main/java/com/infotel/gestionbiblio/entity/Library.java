@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 
@@ -23,8 +22,8 @@ public class Library implements Serializable
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idLibrary;
-	private int libraryCode;
-	private String libraryName, libraryAddress;
+	private int code;
+	private String name, address;
 
 	@OneToMany(mappedBy = "library")
 	private List<Registration> registrations;
@@ -40,35 +39,42 @@ public class Library implements Serializable
 	public Library(int libraryCode, String libraryName, String libraryAddress, List<Registration> registrations,
 			List<Book> books) {
 		super();
-		this.libraryCode = libraryCode;
-		this.libraryName = libraryName;
-		this.libraryAddress = libraryAddress;
+		this.code = libraryCode;
+		this.name = libraryName;
+		this.address = libraryAddress;
 		this.registrations = registrations;
 		this.books = books;
 	}
-
-	public int getLibraryCode() {
-		return libraryCode;
+	public int getIdLibrary() {
+		return idLibrary;
 	}
 
-	public void setLibraryCode(int libraryCode) {
-		this.libraryCode = libraryCode;
+	public void setIdLibrary(int idLibrary) {
+		this.idLibrary = idLibrary;
 	}
 
-	public String getLibraryName() {
-		return libraryName;
+	public int getCode() {
+		return code;
 	}
 
-	public void setLibraryName(String libraryName) {
-		this.libraryName = libraryName;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
-	public String getLibraryAddress() {
-		return libraryAddress;
+	public String getName() {
+		return name;
 	}
 
-	public void setLibraryAddress(String libraryAddress) {
-		this.libraryAddress = libraryAddress;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public List<Registration> getRegistrations() {
@@ -87,16 +93,6 @@ public class Library implements Serializable
 		this.books = books;
 	}
 
-	public int getIdLibrary() {
-		return idLibrary;
-	}
-
-	@Override
-	public String toString() {
-		return "Library [idLibrary=" + idLibrary + ", libraryCode=" + libraryCode + ", libraryName=" + libraryName
-				+ ", libraryAddress=" + libraryAddress + "]";
-	}
-
-
+	
 	
 }
