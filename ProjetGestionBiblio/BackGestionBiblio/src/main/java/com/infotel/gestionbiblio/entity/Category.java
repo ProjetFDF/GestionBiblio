@@ -21,7 +21,7 @@ public class Category  implements Serializable
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int categoryId;
-	private String categoryName, CategoryDescription;
+	private String categoryName, categoryDescription;
 
 	public Category() {
 		super();
@@ -31,11 +31,11 @@ public class Category  implements Serializable
 	public Category(String categoryName, String categoryDescription) {
 		super();
 		this.categoryName = categoryName;
-		CategoryDescription = categoryDescription;
+		this.categoryDescription = categoryDescription;
 	}
 
 	public String getCategoryName() {
-		return categoryName;
+		return this.categoryName;
 	}
 
 	public void setCategoryName(String categoryName) {
@@ -43,11 +43,11 @@ public class Category  implements Serializable
 	}
 
 	public String getCategoryDescription() {
-		return CategoryDescription;
+		return this.categoryDescription;
 	}
 
 	public void setCategoryDescription(String categoryDescription) {
-		CategoryDescription = categoryDescription;
+		this.categoryDescription = categoryDescription;
 	}
 
 	public int getCategoryId() {
@@ -57,7 +57,7 @@ public class Category  implements Serializable
 	@Override
 	public String toString() {
 		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", CategoryDescription="
-				+ CategoryDescription + "]";
+				+ categoryDescription + "]";
 	}
 
 
