@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gestionbiblio.dao.inter.MemberDao;
+import com.infotel.gestionbiblio.entity.BookBasket;
+import com.infotel.gestionbiblio.entity.BookCopy;
 import com.infotel.gestionbiblio.entity.Member;
 
 @Repository
@@ -26,7 +28,7 @@ public class MemberDaoImpl extends CommonDaoImpl<Member> implements MemberDao {
 	@Override
 	public Member getObjectByName(String nom) {
 		@SuppressWarnings("rawtypes")
-		Query query = sessionFactory.getCurrentSession().createQuery("from Member where memberName=:name");
+		Query query = sessionFactory.getCurrentSession().createQuery("from Member where name=:name");
 		query.setParameter("name", nom);
 		member = (Member) query.uniqueResult();
 
@@ -48,7 +50,7 @@ public class MemberDaoImpl extends CommonDaoImpl<Member> implements MemberDao {
 	public Member getMemberByLogin(String memberEmail, String memberPassword) {
 		// TODO Auto-generated method stub
 		Optional<Member> omember = sessionFactory.getCurrentSession()
-				.createQuery("FROM Member WHERE memberEmail=:email AND memberPassword=:password")
+				.createQuery("FROM Member WHERE email=:email AND password=:password")
 				.setParameter("email", memberEmail).setParameter("password", memberPassword).getResultList().stream()
 				.findFirst();
 		Member member = omember.get();
@@ -56,6 +58,7 @@ public class MemberDaoImpl extends CommonDaoImpl<Member> implements MemberDao {
 		{
 			Hibernate.initialize(member.getBorrows());
 			Hibernate.initialize(member.getBookBaskets());
+
 		}
 
 		return member;

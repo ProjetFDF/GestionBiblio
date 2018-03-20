@@ -7,16 +7,14 @@ public class BookCopyDto {
 	private int idBookCopy;
 	private String bookCopyTitle;
 	private Integer bookshelf;
-	private List<Integer> bookBaskets;
 	private Integer book;
 	
 	public BookCopyDto() {
 	}
 
-	public BookCopyDto(String bookCopyTitle, Integer bookshelf, List<Integer> bookBaskets, Integer book) {
+	public BookCopyDto(String bookCopyTitle, Integer bookshelf, Integer book) {
 		this.bookCopyTitle = bookCopyTitle;
 		this.bookshelf = bookshelf;
-		this.bookBaskets = bookBaskets;
 		this.book = book;
 
 	}
@@ -45,13 +43,6 @@ public class BookCopyDto {
 		this.bookshelf = bookshelf;
 	}
 
-	public List<Integer> getBookBaskets() {
-		return bookBaskets;
-	}
-
-	public void setBookBaskets(List<Integer> bookBaskets) {
-		this.bookBaskets = bookBaskets;
-	}
 
 	public Integer getBook() {
 		return book;

@@ -27,7 +27,7 @@ public class CategoryDaoImpl extends CommonDaoImpl<Category> implements Category
 	public Category getObjectByName(String nom) 
 	{
 		Query query= sessionFactory.getCurrentSession().
-		        createQuery("from Category where categoryName=:name");
+		        createQuery("from Category where name=:name");
 		query.setParameter("name", nom);
 		category = (Category) query.uniqueResult();
 		

@@ -27,7 +27,7 @@ public class BookshelfDaoImpl extends CommonDaoImpl<Bookshelf> implements Booksh
 	public Bookshelf getObjectByName(String nom) 
 	{
 		Query query= sessionFactory.getCurrentSession().
-		        createQuery("from Bookshelf where bookshelfName=:name");
+		        createQuery("from Bookshelf where name=:name");
 		query.setParameter("name", nom);
 		bookshelf = (Bookshelf) query.uniqueResult();
 		

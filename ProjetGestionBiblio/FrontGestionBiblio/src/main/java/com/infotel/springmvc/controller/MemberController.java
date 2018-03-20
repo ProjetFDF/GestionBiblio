@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.gestionbiblio.dto.MemberDto;
-import com.infotel.gestionbiblio.entity.BookBasket;
 import com.infotel.gestionbiblio.entity.Member;
-import com.infotel.gestionbiblio.entity.Borrow;
 import com.infotel.gestionbiblio.exception.ServiceException;
+import com.infotel.gestionbiblio.mapper.MemberMapper;
 import com.infotel.gestionbiblio.service.inter.BookBasketService;
 import com.infotel.gestionbiblio.service.inter.BorrowService;
 import com.infotel.gestionbiblio.service.inter.MemberService;
@@ -38,53 +37,22 @@ public class MemberController {
 	
 	@Autowired
 	RegistrationService registrationDto;
+	
+	@Autowired
+	MemberMapper memberMapper;
+	
     
     @PostMapping("/add")
     public void addMember(@RequestBody MemberDto memberDto) 
     {
-
-		Member member = new Member(memberDto.getMemberLastname(),memberDto.getMemberFirstname(),memberDto.getMemberEmail(),memberDto.getMemberPassword(),memberDto.getMemberAddress(),memberDto.getMemberCity(),memberDto.getMemberPostalCode(),memberDto.getMemberPhone());
-
-
-		List<BookBasket> bookBaskets = new ArrayList<BookBasket>();
-		for (int bookBasketId : memberDto.getBookBasketsIds()) {
-			bookBaskets.add(bookBasketService.getById(bookBasketId));
-		}
-		member.setBookBaskets(bookBaskets);
-
-		List<Borrow> borrows = new ArrayList<Borrow>();
-		for (int borrowId : memberDto.getBorrowsIds()) {
-			borrows.add(borrowService.getById(borrowId));
-		}
-		member.setBorrows(borrows);
 		
-
-		
-		
-		memberService.insert(member);         
+		memberService.insert(memberMapper.dtoToMember(memberDto));         
     }
     
     @PostMapping("/update")
 	public void updateMember(@RequestBody MemberDto memberDto) 
-    {
-		Member member = memberService.getById(memberDto.getIdMember());
-		
-
-		List<BookBasket> bookBaskets = new ArrayList<BookBasket>();
-		for (int bookBasketId : memberDto.getBookBasketsIds()) {
-			bookBaskets.add(bookBasketService.getById(bookBasketId));
-		}
-		member.setBookBaskets(bookBaskets);
-
-		List<Borrow> borrows = new ArrayList<Borrow>();
-		for (int borrowId : memberDto.getBorrowsIds()) {
-			borrows.add(borrowService.getById(borrowId));
-		}
-		member.setBorrows(borrows);
-		
-
-		
-		memberService.update(member);
+    {	
+		memberService.update(memberMapper.dtoToMember(memberDto));
 	}
 
     @GetMapping("/getlist")
@@ -97,17 +65,7 @@ public class MemberController {
 
 		for (Member member : members) 
 		{
-			List<Integer> bookBasketsIds = new ArrayList<Integer>();
-			for (BookBasket bookBasket : member.getBookBaskets()) {
-				bookBasketsIds.add(bookBasket.getIdBookBasket());
-			}
-			
-			List<Integer> borrowsIds = new ArrayList<Integer>();
-			for (Borrow borrow : member.getBorrows()) {
-				borrowsIds.add(borrow.getIdBorrow());
-			}
-			
-			viewMembers.add(new MemberDto());
+			viewMembers.add(memberMapper.memberToDto(member));
 		}
 
 		return viewMembers;
@@ -120,7 +78,7 @@ public class MemberController {
 		
 		try 
 		{
-			result.setPayload(memberService.getMemberByLogin(identifiant.getEmail(), identifiant.getPassword()));
+			result.setPayload(memberMapper.memberToDto(memberService.getMemberByLogin(identifiant.getEmail(), identifiant.getPassword())));
 			result.setMessage(ControllerConstante.LOGIN_SUCCESS);
 			result.setSuccess(true);
 		} 

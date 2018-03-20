@@ -27,7 +27,7 @@ public class BookDaoImpl extends CommonDaoImpl<Book> implements BookDao {
 	public Book getObjectByName(String nom) 
 	{
 		Query query= sessionFactory.getCurrentSession().
-		        createQuery("from Book where bookTitle=:name");
+		        createQuery("from Book where bookTitre=:name");
 		query.setParameter("name", nom);
 		book = (Book) query.uniqueResult();
 		

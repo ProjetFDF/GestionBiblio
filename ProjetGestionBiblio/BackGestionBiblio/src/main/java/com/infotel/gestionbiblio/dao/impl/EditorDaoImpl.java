@@ -27,7 +27,7 @@ public class EditorDaoImpl extends CommonDaoImpl<Editor> implements EditorDao {
 	public Editor getObjectByName(String nom) 
 	{
 		Query query= sessionFactory.getCurrentSession().
-		        createQuery("from Editor where editorName=:name");
+		        createQuery("from Editor where name=:name");
 		query.setParameter("name", nom);
 		editor = (Editor) query.uniqueResult();
 		

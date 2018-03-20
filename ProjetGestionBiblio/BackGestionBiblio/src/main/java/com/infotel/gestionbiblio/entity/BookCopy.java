@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,25 +26,19 @@ public class BookCopy implements Serializable
 	@ManyToOne
 	private Bookshelf bookshelf;
 	
-	@ManyToMany
-	private List<BookBasket> bookBaskets;
 
 	@ManyToOne
 	private Book book;
 	
-	/*@ManyToOne
-	Borrow borrow;*/
-
 	public BookCopy() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public BookCopy(String bookCopyTitle, Bookshelf bookshelf, List<BookBasket> bookBaskets, Book book) {
+	public BookCopy(String bookCopyTitle, Bookshelf bookshelf, Book book) {
 		super();
 		this.bookCopyTitle = bookCopyTitle;
 		this.bookshelf = bookshelf;
-		this.bookBaskets = bookBaskets;
 		this.book = book;
 	//	this.borrow = borrow;
 	}
@@ -62,14 +57,6 @@ public class BookCopy implements Serializable
 
 	public void setBookshelf(Bookshelf bookshelf) {
 		this.bookshelf = bookshelf;
-	}
-
-	public List<BookBasket> getBookBaskets() {
-		return bookBaskets;
-	}
-
-	public void setBookBaskets(List<BookBasket> bookBaskets) {
-		this.bookBaskets = bookBaskets;
 	}
 
 	public Book getBook() {

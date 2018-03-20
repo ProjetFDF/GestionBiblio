@@ -27,7 +27,7 @@ public class LibraryDaoImpl extends CommonDaoImpl<Library> implements LibraryDao
 	public Library getObjectByName(String nom) 
 	{
 		Query query= sessionFactory.getCurrentSession().
-		        createQuery("from Library where libraryName=:name");
+		        createQuery("from Library where name=:name");
 		query.setParameter("name", nom);
 		library = (Library) query.uniqueResult();
 		

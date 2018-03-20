@@ -21,7 +21,6 @@ public class MemberDto
 	
 	private List<Integer> bookBasketsIds;
 	private List<Integer> borrowsIds;
-	private List<Integer> registrationsIds;
 	
 	public MemberDto() {
 		super();
@@ -29,8 +28,7 @@ public class MemberDto
 	}
 	public MemberDto(String memberLastname, String memberFirstname, String memberEmail, String memberPassword,
 			String memberAddress, String memberCity, String memberPostalCode, String memberPhone,
-			boolean administrateur, List<Integer> bookBasketsIds, List<Integer> borrowsIds,
-			List<Integer> registrationsIds) 
+			boolean administrateur, List<Integer> bookBasketsIds, List<Integer> borrowsIds) 
 	{
 		super();
 		this.memberLastname = memberLastname;
@@ -44,7 +42,6 @@ public class MemberDto
 		this.administrateur = administrateur;
 		this.bookBasketsIds = bookBasketsIds;
 		this.borrowsIds = borrowsIds;
-		this.registrationsIds = registrationsIds;
 	}
 	public MemberDto(String memberLastname, String memberFirstname, String memberEmail, String memberPassword,
 			String memberAddress, String memberCity, String memberPostalCode, String memberPhone,
@@ -125,12 +122,6 @@ public class MemberDto
 	}
 	public void setBorrowsIds(List<Integer> borrowsIds) {
 		this.borrowsIds = borrowsIds;
-	}
-	public List<Integer> getRegistrationsIds() {
-		return registrationsIds;
-	}
-	public void setRegistrationsIds(List<Integer> registrationsIds) {
-		this.registrationsIds = registrationsIds;
 	}
 	public int getIdMember() {
 		return idMember;

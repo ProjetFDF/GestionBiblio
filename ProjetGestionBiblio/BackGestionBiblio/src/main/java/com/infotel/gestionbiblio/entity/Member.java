@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.Hibernate;
+
 
 
 @Entity
@@ -36,7 +38,7 @@ public class Member  implements Serializable
 	
 	@OneToMany
 	private List<Borrow> borrows;
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<BookBasket> bookBaskets;
 
 	public Member() {
@@ -46,8 +48,7 @@ public class Member  implements Serializable
 
 	public Member(String memberLastname, String memberFirstname, String memberEmail, String memberPassword,
 			String memberAddress, String memberCity, String memberPostalCode, String memberPhone,
-			boolean administrateur, List<BookBasket> bookBasket, List<Borrow> borrows,
-			List<Registration> registrations) {
+			boolean administrateur, List<BookBasket> bookBasket, List<Borrow> borrows) {
 		super();
 		this.lastname = memberLastname;
 		this.firstname = memberFirstname;
@@ -60,6 +61,7 @@ public class Member  implements Serializable
 		this.administrateur = administrateur;
 		this.bookBaskets = bookBasket;
 		this.borrows = borrows;
+
 	}
 
 	public Member(String memberLastname, String memberFirstname, String memberEmail, String memberPassword,
@@ -164,6 +166,7 @@ public class Member  implements Serializable
 	}
 
 	public List<BookBasket> getBookBaskets() {
+		
 		return bookBaskets;
 	}
 

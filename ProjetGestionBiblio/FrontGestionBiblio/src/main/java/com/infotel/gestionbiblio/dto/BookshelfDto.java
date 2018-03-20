@@ -8,18 +8,9 @@ public class BookshelfDto {
 	private String name;
 	private String description;
 	private int bookNumber;
-	private List<Integer> bookCopyIds;
 	
 	public BookshelfDto() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public BookshelfDto(String bookshelfName, String bookshelfDescription, int bookNumber,
-			List<Integer> bookshelfBookCopy) {
-		this.name = bookshelfName;
-		this.description = bookshelfDescription;
-		this.bookNumber = bookNumber;
-		this.bookCopyIds = bookshelfBookCopy;
 	}
 
 	public BookshelfDto(String bookshelfName, String bookshelfDescription, int bookNumber) {
@@ -27,6 +18,7 @@ public class BookshelfDto {
 		this.description = bookshelfDescription;
 		this.bookNumber = bookNumber;
 	}
+
 
 	public int getIdBookshelf() {
 		return idBookshelf;
@@ -59,14 +51,5 @@ public class BookshelfDto {
 	public void setBookNumber(int bookNumber) {
 		this.bookNumber = bookNumber;
 	}
-
-	public List<Integer> getBookCopyIds() {
-		return bookCopyIds;
-	}
-
-	public void setBookCopyIds(List<Integer> bookCopyIds) {
-		this.bookCopyIds = bookCopyIds;
-	}
-
 	
 }
