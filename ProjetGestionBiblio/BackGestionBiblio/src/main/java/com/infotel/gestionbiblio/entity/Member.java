@@ -32,7 +32,7 @@ public class Member  implements Serializable
 	private String  email;
 	
 	private String password, address, city,
-			memberPostalCode, memberPhone;
+			postalCode, phone;
 	
 	private boolean administrateur=false;
 	
@@ -56,8 +56,8 @@ public class Member  implements Serializable
 		this.password = memberPassword;
 		this.address = memberAddress;
 		this.city = memberCity;
-		this.memberPostalCode = memberPostalCode;
-		this.memberPhone = memberPhone;
+		this.postalCode = memberPostalCode;
+		this.phone = memberPhone;
 		this.administrateur = administrateur;
 		this.bookBaskets = bookBasket;
 		this.borrows = borrows;
@@ -73,8 +73,8 @@ public class Member  implements Serializable
 		this.password = memberPassword;
 		this.address = memberAddress;
 		this.city = memberCity;
-		this.memberPostalCode = memberPostalCode;
-		this.memberPhone = memberPhone;
+		this.postalCode = memberPostalCode;
+		this.phone = memberPhone;
 	}
 
 	public int getIdMember() {
@@ -133,20 +133,20 @@ public class Member  implements Serializable
 		this.city = city;
 	}
 
-	public String getMemberPostalCode() {
-		return memberPostalCode;
+	public String getPostalCode() {
+		return postalCode;
 	}
 
-	public void setMemberPostalCode(String memberPostalCode) {
-		this.memberPostalCode = memberPostalCode;
+	public void setPostalCode(String memberPostalCode) {
+		this.postalCode = memberPostalCode;
 	}
 
-	public String getMemberPhone() {
-		return memberPhone;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setMemberPhone(String memberPhone) {
-		this.memberPhone = memberPhone;
+	public void setPhone(String memberPhone) {
+		this.phone = memberPhone;
 	}
 
 	public boolean isAdministrateur() {

@@ -42,7 +42,7 @@ public class MemberMapper {
 			borrows.add(borrowBasketService.getById(borrowId));
 		}
 
-		Member member = new Member(memberDto.getMemberLastname(),memberDto.getMemberFirstname(),memberDto.getMemberEmail(),memberDto.getMemberPassword(),memberDto.getMemberAddress(),memberDto.getMemberCity(),memberDto.getMemberPostalCode(),memberDto.getMemberPhone(),memberDto.isAdministrateur(),bookBaskets,borrows);
+		Member member = new Member(memberDto.getLastname(),memberDto.getFirstname(),memberDto.getEmail(),memberDto.getPassword(),memberDto.getAddress(),memberDto.getCity(),memberDto.getPostalCode(),memberDto.getPhone(),memberDto.isAdministrateur(),bookBaskets,borrows);
  
 		return member;
 	}
@@ -59,6 +59,6 @@ public class MemberMapper {
 			borrowIds.add(borrow.getIdBorrow());
 		}
 
-		return new MemberDto(member.getLastname(),member.getFirstname(),member.getEmail(),member.getPassword(),member.getAddress(),member.getCity(),member.getMemberPostalCode(),member.getMemberPhone(),member.isAdministrateur(),bookBasketIds,bookBasketIds);
+		return new MemberDto(member.getLastname(),member.getFirstname(),member.getEmail(),member.getPassword(),member.getAddress(),member.getCity(),member.getPostalCode(),member.getPhone(),member.isAdministrateur(),bookBasketIds,bookBasketIds);
 	}
 }

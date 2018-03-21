@@ -41,22 +41,37 @@ public class MemberController {
 	@Autowired
 	MemberMapper memberMapper;
 	
-    
-    @PostMapping("/add")
-    public void addMember(@RequestBody MemberDto memberDto) 
+	@RequestMapping(value = {"/add"}, method = RequestMethod.POST)
+    public Resultat addMember(@RequestBody MemberDto memberDto) 
     {
+    	Resultat result = new Resultat();
+		System.out.println(memberDto);
+		try 
+		{
+			memberService.insert(memberMapper.dtoToMember(memberDto));
+			result.setPayload(memberDto);
+			result.setMessage(ControllerConstante.INSCRIPTION_SUCCESS);
+			result.setSuccess(true);
+		} 
+		catch (Exception e) 
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.INSCRIPTION_ERROR);
+			e.printStackTrace();
+		}
 		
-		memberService.insert(memberMapper.dtoToMember(memberDto));         
+		return result;
     }
     
-    @PostMapping("/update")
+    @PostMapping(value = {"/update"})
 	public void updateMember(@RequestBody MemberDto memberDto) 
     {	
 		memberService.update(memberMapper.dtoToMember(memberDto));
 	}
 
     @GetMapping("/getlist")
-	public List<MemberDto> getMembers() {
+	public List<MemberDto> getMembers() 
+    {
 		List<MemberDto> viewMembers = new ArrayList<MemberDto>();
 
 		List<Member> members = memberService.getList();

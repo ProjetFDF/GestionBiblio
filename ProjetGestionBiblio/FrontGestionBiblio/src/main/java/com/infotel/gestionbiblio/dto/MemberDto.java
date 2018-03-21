@@ -6,16 +6,16 @@ import java.util.List;
 public class MemberDto 
 {
 	private int idMember;
-	private String memberLastname;
-	private String memberFirstname;
+	private String lastname;
+	private String firstname;
 	
-	private String memberEmail;
+	private String email;
 
-	private String memberPassword;
-	private String memberAddress;
-	private String memberCity;
-	private String memberPostalCode;
-	private String memberPhone;
+	private String password;
+	private String address;
+	private String city;
+	private String postalCode;
+	private String phone;
 	
 	private boolean administrateur;
 	
@@ -31,14 +31,14 @@ public class MemberDto
 			boolean administrateur, List<Integer> bookBasketsIds, List<Integer> borrowsIds) 
 	{
 		super();
-		this.memberLastname = memberLastname;
-		this.memberFirstname = memberFirstname;
-		this.memberEmail = memberEmail;
-		this.memberPassword = memberPassword;
-		this.memberAddress = memberAddress;
-		this.memberCity = memberCity;
-		this.memberPostalCode = memberPostalCode;
-		this.memberPhone = memberPhone;
+		this.lastname = memberLastname;
+		this.firstname = memberFirstname;
+		this.email = memberEmail;
+		this.password = memberPassword;
+		this.address = memberAddress;
+		this.city = memberCity;
+		this.postalCode = memberPostalCode;
+		this.phone = memberPhone;
 		this.administrateur = administrateur;
 		this.bookBasketsIds = bookBasketsIds;
 		this.borrowsIds = borrowsIds;
@@ -47,63 +47,69 @@ public class MemberDto
 			String memberAddress, String memberCity, String memberPostalCode, String memberPhone,
 			boolean administrateur) {
 		super();
-		this.memberLastname = memberLastname;
-		this.memberFirstname = memberFirstname;
-		this.memberEmail = memberEmail;
-		this.memberPassword = memberPassword;
-		this.memberAddress = memberAddress;
-		this.memberCity = memberCity;
-		this.memberPostalCode = memberPostalCode;
-		this.memberPhone = memberPhone;
+		this.lastname = memberLastname;
+		this.firstname = memberFirstname;
+		this.email = memberEmail;
+		this.password = memberPassword;
+		this.address = memberAddress;
+		this.city = memberCity;
+		this.postalCode = memberPostalCode;
+		this.phone = memberPhone;
 		this.administrateur = administrateur;
 	}
-	public String getMemberLastname() {
-		return memberLastname;
+	public int getIdMember() {
+		return idMember;
 	}
-	public void setMemberLastname(String memberLastname) {
-		this.memberLastname = memberLastname;
+	public void setIdMember(int idMember) {
+		this.idMember = idMember;
 	}
-	public String getMemberFirstname() {
-		return memberFirstname;
+	public String getLastname() {
+		return lastname;
 	}
-	public void setMemberFirstname(String memberFirstname) {
-		this.memberFirstname = memberFirstname;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
-	public String getMemberEmail() {
-		return memberEmail;
+	public String getFirstname() {
+		return firstname;
 	}
-	public void setMemberEmail(String memberEmail) {
-		this.memberEmail = memberEmail;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
-	public String getMemberPassword() {
-		return memberPassword;
+	public String getEmail() {
+		return email;
 	}
-	public void setMemberPassword(String memberPassword) {
-		this.memberPassword = memberPassword;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getMemberAddress() {
-		return memberAddress;
+	public String getPassword() {
+		return password;
 	}
-	public void setMemberAddress(String memberAddress) {
-		this.memberAddress = memberAddress;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getMemberCity() {
-		return memberCity;
+	public String getAddress() {
+		return address;
 	}
-	public void setMemberCity(String memberCity) {
-		this.memberCity = memberCity;
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	public String getMemberPostalCode() {
-		return memberPostalCode;
+	public String getCity() {
+		return city;
 	}
-	public void setMemberPostalCode(String memberPostalCode) {
-		this.memberPostalCode = memberPostalCode;
+	public void setCity(String city) {
+		this.city = city;
 	}
-	public String getMemberPhone() {
-		return memberPhone;
+	public String getPostalCode() {
+		return postalCode;
 	}
-	public void setMemberPhone(String memberPhone) {
-		this.memberPhone = memberPhone;
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public boolean isAdministrateur() {
 		return administrateur;
@@ -122,9 +128,6 @@ public class MemberDto
 	}
 	public void setBorrowsIds(List<Integer> borrowsIds) {
 		this.borrowsIds = borrowsIds;
-	}
-	public int getIdMember() {
-		return idMember;
 	}
 	
 	
