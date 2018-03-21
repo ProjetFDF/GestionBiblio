@@ -48,7 +48,7 @@ public class AppController {
 		String[] listeCategoriesId = request.getParameterValues("categoriesId");
 		String titlesearch = request.getParameter("titleSearch");
 
-		if (listeAuthorsId != null && listeAuthorsId.length > 0) {
+	/*	if (listeAuthorsId != null && listeAuthorsId.length > 0) {
 			books = bookService.getListLivreAuthorFilter(books, listeAuthorsId);
 		}
 
@@ -63,7 +63,7 @@ public class AppController {
 		if (titlesearch != null && !titlesearch.isEmpty()) {
 			books = bookService.getListLivreTitreFilter(books, titlesearch);
 		}
-
+*/
 		model.addAttribute("books", books);
 
 		return model;

@@ -12,7 +12,6 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +23,9 @@ import com.infotel.gestionbiblio.dto.BookDto;
 import com.infotel.gestionbiblio.entity.Book;
 import com.infotel.gestionbiblio.mapper.BookMapper;
 import com.infotel.gestionbiblio.service.inter.BookService;
+import com.infotel.gestionbiblio.utils.ControllerConstante;
 import com.infotel.gestionbiblio.utils.Resultat;
+import com.infotel.gestionbiblio.viewmodel.FiltresMultiplesVM;
 
 @RestController
 @RequestMapping("/book")
@@ -88,34 +89,57 @@ public class BookController {
 	    IOUtils.copy(in, response.getOutputStream());
 	}
 	
-/*	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public Resultat getBookRecommanded(@RequestParam boolean recomande, HttpServletResponse response, HttpServletRequest request) throws IOException 
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public Resultat getBookRecommanded(@RequestParam FiltresMultiplesVM filtres, HttpServletResponse response, HttpServletRequest request) throws IOException 
 	{
 		Resultat result = new Resultat();
-		
-		String[] listeAuthorsId = request.getParameterValues("authorsId");
-		String[] listeEditorsId = request.getParameterValues("editorsId");
-		String[] listeCategoriesId = request.getParameterValues("categoriesId");
-		String titlesearch = request.getParameter("titleSearch");
-
-		if (listeAuthorsId != null && listeAuthorsId.length > 0) {
-			books = bookService.getListLivreAuthorFilter(books, listeAuthorsId);
+		try 
+		{
+			List<Integer> listeAuthorsId = filtres.getAuhtorIds();
+			List<Integer> listeEditorsId = filtres.getEditorsIds();
+			List<Integer> listeCategoriesId = filtres.getCategoryIds();
+			boolean recommande = filtres.isRecommande();
+			String titlesearch = filtres.getTitre();
+			
+			List<Book> books = bookService.getList();
+			
+			if (recommande) {
+				books = bookService.getBookRecommandes(books);
+			}
+	
+			if (listeAuthorsId != null && listeAuthorsId.size() > 0) {
+				books = bookService.getListLivreAuthorFilter(books, listeAuthorsId);
+			}
+	
+			if (listeEditorsId != null && listeEditorsId.size() > 0) {
+				books = bookService.getListLivreEditorFilter(books, listeEditorsId);
+			}
+	
+			if (listeCategoriesId != null && listeCategoriesId.size() > 0) {
+				books = bookService.getListLivreCategoryFilter(books, listeCategoriesId);
+			}
+	
+			if (titlesearch != null && !titlesearch.isEmpty()) {
+				books = bookService.getListLivreTitreFilter(books, titlesearch);
+			}
+			
+			List<BookDto> booksDto = new ArrayList<BookDto>();
+			for(Book book : books)
+			{
+				booksDto.add(bookMapper.bookToDto(book));
+			}
+			
+			result.setPayload(booksDto);
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
 		}
-
-		if (listeEditorsId != null && listeEditorsId.length > 0) {
-			books = bookService.getListLivreEditorFilter(books, listeEditorsId);
+		catch(Exception e)
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
 		}
-
-		if (listeCategoriesId != null && listeCategoriesId.length > 0) {
-			books = bookService.getListLivreCategoryFilter(books, listeCategoriesId);
-		}
-
-		if (titlesearch != null && !titlesearch.isEmpty()) {
-			books = bookService.getListLivreTitreFilter(books, titlesearch);
-		}
-
-		model.addAttribute("books", books);
 		
 		return result;
-	}*/
+	}
 }

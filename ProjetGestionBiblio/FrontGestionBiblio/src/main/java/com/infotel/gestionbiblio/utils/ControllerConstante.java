@@ -10,5 +10,8 @@ public class ControllerConstante
 	//Inscription d'un membre
 	public static final String INSCRIPTION_SUCCESS = "Utilisateur inscrit avec succès";
 	public static final String INSCRIPTION_ERROR = "Une Erreur est survenue lors de la création de l'utilisateur";
-	
+	//Inscription d'un membre
+	public static final String LIST_SUCCESS = "Récupération de la liste réussie";
+	public static final String LIST_ERROR = "Une Erreur est survenue lors de la récupération de la liste";
+		
 }

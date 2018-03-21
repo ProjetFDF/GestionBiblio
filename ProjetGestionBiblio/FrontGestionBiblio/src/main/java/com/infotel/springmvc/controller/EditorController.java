@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.gestionbiblio.service.inter.EditorService;
+import com.infotel.gestionbiblio.utils.ControllerConstante;
+import com.infotel.gestionbiblio.utils.Resultat;
 import com.infotel.gestionbiblio.dto.EditorDto;
 import com.infotel.gestionbiblio.entity.Editor;
 import com.infotel.gestionbiblio.mapper.EditorMapper;
@@ -38,18 +40,33 @@ public class EditorController
 	}
 
 	@GetMapping("/getlist")
-	public List<EditorDto> getEditors() 
+	public Resultat getEditors() 
 	{
-		List<EditorDto> viewEditors = new ArrayList<EditorDto>();
+		Resultat result = new Resultat();
+		
+		try 
+		{		
+			List<EditorDto> viewEditors = new ArrayList<EditorDto>();
 
-		List<Editor> editors = editorService.getList();
+			List<Editor> editors = editorService.getList();
 
-		for (Editor editor : editors) {
+			for (Editor editor : editors) {
+				
+				viewEditors.add(editorMapper.editorToDto(editor));
+			}
 			
-			viewEditors.add(editorMapper.editorToDto(editor));
+			result.setPayload(viewEditors);
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
 		}
-
-		return viewEditors;
+		catch (Exception e) 
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 	
 	@GetMapping("/get")

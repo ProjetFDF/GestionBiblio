@@ -18,9 +18,9 @@ public interface BookService {
 	public List<Book> getList();
 
 	public List<Book> getListLivreTitreFilter(List<Book> listBook, String titre);
-	public List<Book> getListLivreAuthorFilter(List<Book> listBook, String[] listeAuthorsId);
-	public List<Book> getListLivreCategoryFilter(List<Book> listBook, String[] listeIdCategory);
-	public List<Book> getListLivreEditorFilter(List<Book> listBook, String[] listeIdEditor);
+	public List<Book> getListLivreAuthorFilter(List<Book> listBook, List<Integer> listeAuthorsId);
+	public List<Book> getListLivreCategoryFilter(List<Book> listBook, List<Integer> listeIdCategory);
+	public List<Book> getListLivreEditorFilter(List<Book> listBook, List<Integer> listeIdEditor);
 	
 	public int getNbBookDispo();
 	public boolean bookIsDispo();

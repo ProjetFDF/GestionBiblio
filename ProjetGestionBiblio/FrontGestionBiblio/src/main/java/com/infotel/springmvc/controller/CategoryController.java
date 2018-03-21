@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.gestionbiblio.dto.CategoryDto;
 import com.infotel.gestionbiblio.entity.Category;
+import com.infotel.gestionbiblio.exception.ServiceException;
 import com.infotel.gestionbiblio.mapper.CategoryMapper;
 import com.infotel.gestionbiblio.service.inter.CategoryService;
+import com.infotel.gestionbiblio.utils.ControllerConstante;
+import com.infotel.gestionbiblio.utils.Resultat;
 
 @RestController
 @RequestMapping("/category")
@@ -38,18 +41,33 @@ public class CategoryController {
 	}
 
 	@GetMapping("/getlist")
-	public List<CategoryDto> getCategorys() 
+	public Resultat getCategorys() 
 	{
-		List<CategoryDto> viewCategorys = new ArrayList<CategoryDto>();
+		
+		Resultat result = new Resultat();
+		
+		try 
+		{		
+			List<CategoryDto> viewCategorys = new ArrayList<CategoryDto>();
 
-		List<Category> categorys = categoryService.getList();
-
-		for (Category category : categorys) {
+			List<Category> categorys = categoryService.getList();
+	
+			for (Category category : categorys) {
+				viewCategorys.add(categoryMapper.categoryToDto(category));
+			}
 			
-			viewCategorys.add(categoryMapper.categoryToDto(category));
+			result.setPayload(viewCategorys);
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
 		}
-
-		return viewCategorys;
+		catch (Exception e) 
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 	
 	@GetMapping("/get")

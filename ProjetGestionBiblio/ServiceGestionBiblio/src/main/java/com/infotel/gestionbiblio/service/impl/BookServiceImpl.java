@@ -56,13 +56,13 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public List<Book> getListLivreAuthorFilter(List<Book> listBook, String[] listeIdAuthor) {
+	public List<Book> getListLivreAuthorFilter(List<Book> listBook, List<Integer> listeIdAuthor) {
 		List<Book> listeFiltre = new ArrayList<Book>();
 
 		for (Book book : listBook) {
 			for (Author author : book.getAuthors()) {
-				for (String id : listeIdAuthor) {
-					if (author.getAuthorId() == Integer.parseInt(id)) {
+				for (int id : listeIdAuthor) {
+					if (author.getAuthorId() == id) {
 						listeFiltre.add(book);
 						continue;
 					}
@@ -73,12 +73,12 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public List<Book> getListLivreCategoryFilter(List<Book> listBook, String[] listeIdCategory) {
+	public List<Book> getListLivreCategoryFilter(List<Book> listBook, List<Integer> listeIdCategory) {
 		List<Book> listeFiltre = new ArrayList<Book>();
 
 		for (Book book : listBook) {
-			for (String id : listeIdCategory) {
-				if (book.getCategory().getIdCategory() == Integer.parseInt(id)) {
+			for (int id : listeIdCategory) {
+				if (book.getCategory().getIdCategory() == id) {
 					listeFiltre.add(book);
 					continue;
 				}
@@ -88,12 +88,12 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public List<Book> getListLivreEditorFilter(List<Book> listBook, String[] listeIdEditor) {
+	public List<Book> getListLivreEditorFilter(List<Book> listBook, List<Integer> listeIdEditor) {
 		List<Book> listeFiltre = new ArrayList<Book>();
 
 		for (Book book : listBook) {
-			for (String id : listeIdEditor) {
-				if (book.getEditor().getIdEditor() == Integer.parseInt(id)) {
+			for (int id : listeIdEditor) {
+				if (book.getEditor().getIdEditor() == id) {
 					listeFiltre.add(book);
 					continue;
 				}
