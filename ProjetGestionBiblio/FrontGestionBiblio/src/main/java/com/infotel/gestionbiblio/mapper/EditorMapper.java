@@ -15,12 +15,12 @@ public class EditorMapper {
 	
 	@Autowired
 	EditorService editorService;
+	
 
 
 	public Editor dtoToEditor(EditorDto editorDto) {
-
-
-		Editor editor = new Editor();
+		
+		Editor editor = new Editor(editorDto.getName(),editorDto.getAddress());
 
 
 		return editor;
@@ -28,8 +28,7 @@ public class EditorMapper {
 
 	public EditorDto editorToDto(Editor editor) {
 
-
-		return new EditorDto();
+		return new EditorDto(editor.getName(),editor.getAddress());
 	}
 
 }

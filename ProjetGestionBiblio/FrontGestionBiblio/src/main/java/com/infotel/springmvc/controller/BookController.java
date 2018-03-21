@@ -90,7 +90,7 @@ public class BookController {
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public Resultat getBookRecommanded(@RequestParam FiltresMultiplesVM filtres, HttpServletResponse response, HttpServletRequest request) throws IOException 
+	public Resultat getBooksSearch(@RequestBody FiltresMultiplesVM filtres) throws IOException 
 	{
 		Resultat result = new Resultat();
 		try 
