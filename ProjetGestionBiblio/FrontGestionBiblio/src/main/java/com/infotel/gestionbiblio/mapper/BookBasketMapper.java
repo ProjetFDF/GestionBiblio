@@ -21,28 +21,19 @@ public class BookBasketMapper {
 	@Autowired
 	BookBasketService bookBasketService;
 	
-	public BookBasket dtoToBook(BookBasketDto bookBasketDto) {
-		List<BookCopy> bookCopys = new ArrayList<BookCopy>();
-		for (int bookCopyId : bookBasketDto.getBookCopyIds()) {
-			bookCopys.add(bookCopyService.getById(bookCopyId));
-		}
+	public BookBasket dtoToBookBasket(BookBasketDto bookBasketDto) {
 
-		BookBasket bookBasket = new BookBasket(bookBasketDto.getCreationDate(),bookBasketDto.getDeliveryDate(),bookCopys);
+		BookBasket bookBasket = new BookBasket(bookBasketDto.getCreationDate(),bookBasketDto.getDeliveryDate(),bookCopyService.getById(bookBasketDto.getBookCopyId()));
 
 		bookBasket.setIdBookBasket(bookBasketDto.getIdBookBasket());
 		
 		return bookBasket;
 	}
 
-	public BookBasketDto bookToDto(BookBasket bookBasket) {
+	public BookBasketDto bookBasketToDto(BookBasket bookBasket) {
 	
-		List<Integer> bookCopysIds = new ArrayList<Integer>();
-
-		for (BookCopy bookCopy : bookBasket.getBookCopys()) {
-			bookCopysIds.add(bookCopy.getIdBookCopy());
-		}
-		
-		BookBasketDto bookBasketDto = new BookBasketDto(bookBasket.getCreationDate(),bookBasket.getDeliveryDate(),bookCopysIds);
+	
+		BookBasketDto bookBasketDto = new BookBasketDto(bookBasket.getCreationDate(),bookBasket.getDeliveryDate(),bookBasket.getBookCopy().getIdBookCopy());
 
 		bookBasketDto.setIdBookBasket(bookBasket.getIdBookBasket());
 		

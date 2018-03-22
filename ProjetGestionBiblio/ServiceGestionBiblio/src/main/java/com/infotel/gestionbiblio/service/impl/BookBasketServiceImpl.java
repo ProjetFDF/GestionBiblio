@@ -1,5 +1,6 @@
 package com.infotel.gestionbiblio.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gestionbiblio.dao.inter.BookBasketDao;
+import com.infotel.gestionbiblio.dao.inter.MemberDao;
+import com.infotel.gestionbiblio.entity.Book;
 import com.infotel.gestionbiblio.entity.BookBasket;
+import com.infotel.gestionbiblio.entity.Member;
 import com.infotel.gestionbiblio.service.inter.BookBasketService;
 
 @Service
@@ -15,6 +19,8 @@ import com.infotel.gestionbiblio.service.inter.BookBasketService;
 public class BookBasketServiceImpl implements BookBasketService {
 	@Autowired
 	private BookBasketDao bookBasketDao;
+	@Autowired
+	MemberDao memberDao;
  
 	
 	public void insert(final BookBasket monObjet)
@@ -42,4 +48,20 @@ public class BookBasketServiceImpl implements BookBasketService {
 	public List<BookBasket> getList(){
 		return bookBasketDao.getList();
 	}
+	
+	@Override
+	public List<Book> getListByIdMember(int memberId)
+	{
+		List<BookBasket> bookBaskets = memberDao.getById(memberId).getBookBaskets();
+		List<Book> books = new ArrayList<Book>();
+		
+		for(BookBasket bookBasket : bookBaskets)
+		{
+			books.add(bookBasket.getBookCopy().getBook());
+		}
+
+		return books;
+	}
+
+
 }

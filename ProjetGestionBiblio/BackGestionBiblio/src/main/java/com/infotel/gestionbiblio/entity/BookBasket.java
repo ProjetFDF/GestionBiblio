@@ -1,15 +1,12 @@
 package com.infotel.gestionbiblio.entity;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -24,19 +21,21 @@ public class BookBasket implements Serializable
 	private int idBookBasket;
 	private String creationDate, deliveryDate;
 
-	@OneToMany(fetch=FetchType.EAGER)
-	private List<BookCopy> bookCopys;
+	@OneToOne
+	private BookCopy bookCopy;
 
 	public BookBasket() {
 		super();
 	}
 
-	public BookBasket(String creationDate, String deliveryDate, List<BookCopy> bookCopys) {
+
+	public BookBasket(String creationDate, String deliveryDate, BookCopy bookCopy) {
 		super();
 		this.creationDate = creationDate;
 		this.deliveryDate = deliveryDate;
-		this.bookCopys = bookCopys;
+		this.bookCopy = bookCopy;
 	}
+
 
 	public String getCreationDate() {
 		return creationDate;
@@ -54,12 +53,12 @@ public class BookBasket implements Serializable
 		this.deliveryDate = deliveryDate;
 	}
 
-	public List<BookCopy> getBookCopys() {
-		return bookCopys;
+	public BookCopy getBookCopy() {
+		return bookCopy;
 	}
 
-	public void setBookCopys(List<BookCopy> bookCopys) {
-		this.bookCopys = bookCopys;
+	public void setBookCopy(BookCopy bookCopy) {
+		this.bookCopy = bookCopy;
 	}
 
 	public int getIdBookBasket() {

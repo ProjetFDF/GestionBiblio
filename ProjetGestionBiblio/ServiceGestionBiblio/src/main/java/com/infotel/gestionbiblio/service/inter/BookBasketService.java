@@ -3,6 +3,7 @@
 
 import java.util.List;
 
+import com.infotel.gestionbiblio.entity.Book;
 import com.infotel.gestionbiblio.entity.BookBasket;
 
 public interface BookBasketService {
@@ -12,4 +13,5 @@ public interface BookBasketService {
 	public BookBasket getById(int id);
 	public BookBasket getObjectByName(String nom) ;
 	public List<BookBasket> getList();
+	public List<Book> getListByIdMember(int memberId);
 }

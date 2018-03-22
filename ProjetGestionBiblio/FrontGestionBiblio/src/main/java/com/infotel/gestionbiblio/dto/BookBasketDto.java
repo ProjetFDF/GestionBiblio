@@ -1,21 +1,21 @@
 package com.infotel.gestionbiblio.dto;
 
-import java.util.Date;
-import java.util.List;
 
 
 public class BookBasketDto {
 	private int idBookBasket;
 	private String creationDate;
 	private String deliveryDate;
-	private List<Integer> bookCopyIds;
+	private Integer bookCopyId;
 
 	
-	public BookBasketDto(String creationDate, String deliveryDate, List<Integer> bookCopyIds) {
+
+
+	public BookBasketDto(String creationDate, String deliveryDate, Integer bookCopyId) {
 		super();
 		this.creationDate = creationDate;
 		this.deliveryDate = deliveryDate;
-		this.bookCopyIds = bookCopyIds;
+		this.bookCopyId = bookCopyId;
 	}
 
 
@@ -54,13 +54,13 @@ public class BookBasketDto {
 	}
 
 
-	public List<Integer> getBookCopyIds() {
-		return bookCopyIds;
+	public Integer getBookCopyId() {
+		return bookCopyId;
 	}
 
 
-	public void setBookCopyIds(List<Integer> bookCopyIds) {
-		this.bookCopyIds = bookCopyIds;
+	public void setBookCopyId(Integer bookCopyIds) {
+		this.bookCopyId = bookCopyIds;
 	}
 
 }

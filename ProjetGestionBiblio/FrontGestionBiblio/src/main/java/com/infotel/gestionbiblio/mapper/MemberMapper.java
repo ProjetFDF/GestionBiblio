@@ -7,20 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.infotel.gestionbiblio.dto.MemberDto;
-import com.infotel.gestionbiblio.dto.RegistrationDto;
 import com.infotel.gestionbiblio.entity.BookBasket;
 import com.infotel.gestionbiblio.entity.Borrow;
 import com.infotel.gestionbiblio.entity.Member;
 import com.infotel.gestionbiblio.service.inter.BookBasketService;
-import com.infotel.gestionbiblio.service.inter.BookService;
 import com.infotel.gestionbiblio.service.inter.BorrowService;
+import com.infotel.gestionbiblio.service.inter.MemberService;
 
 
 @Component
 public class MemberMapper {
-
-	@Autowired
-	BookService bookService;
 
 	@Autowired
 	BookBasketService bookBasketService;

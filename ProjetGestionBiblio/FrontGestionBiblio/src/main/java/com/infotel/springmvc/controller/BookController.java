@@ -43,7 +43,6 @@ public class BookController {
 		Resultat result = new Resultat();
 		try 
 		{
-			
 			bookService.insert(bookMapper.dtoToBook(bookDto));
 			
 			result.setPayload(bookDto);
