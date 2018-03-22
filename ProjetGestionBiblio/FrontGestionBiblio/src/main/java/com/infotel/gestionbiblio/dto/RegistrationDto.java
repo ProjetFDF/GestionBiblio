@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class RegistrationDto {
 	private int idRegistration;
-	private Date date;
+	private String date;
 	private Integer memberId;
 	private Integer libraryId;
 	
@@ -12,7 +12,7 @@ public class RegistrationDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RegistrationDto(Date date, Integer memberId, Integer libraryId) {
+	public RegistrationDto(String date, Integer memberId, Integer libraryId) {
 		super();
 		this.date = date;
 		this.memberId = memberId;
@@ -27,11 +27,11 @@ public class RegistrationDto {
 		this.idRegistration = idRegistration;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

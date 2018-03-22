@@ -12,7 +12,7 @@ public class BookDto
 	private String bookTitre, bookDescription, imagePath;
 	private boolean popularBook, periodicBook;
 	private float bookPrice;
-	private Date publicationDate;
+	private String publicationDate;
 
 	//Id attributs complexes
 	private int categoryId;
@@ -24,7 +24,7 @@ public class BookDto
 		super();
 	}
 	public BookDto(int iSBN, String bookTitre, String bookDescription, String imagePath, boolean popularBook,
-			boolean periodicBook, float bookPrice, Date publicationDate, int idCategory, int idEditor,
+			boolean periodicBook, float bookPrice, String publicationDate, int idCategory, int idEditor,
 			List<Integer> authorIds) 
 	{
 		super();
@@ -42,7 +42,7 @@ public class BookDto
 	}
 	
 	public BookDto(int iSBN, String bookTitre, String bookDescription, String imagePath, boolean popularBook,
-			boolean periodicBook, float bookPrice, Date publicationDate, int categoryId, int editorId) {
+			boolean periodicBook, float bookPrice, String publicationDate, int categoryId, int editorId) {
 		super();
 		ISBN = iSBN;
 		this.bookTitre = bookTitre;
@@ -57,6 +57,15 @@ public class BookDto
 	}
 	
 
+	public int getEditorId() {
+		return editorId;
+	}
+	public void setEditorId(int editorId) {
+		this.editorId = editorId;
+	}
+	public void setIdBook(int idBook) {
+		this.idBook = idBook;
+	}
 	public int getISBN() {
 		return this.ISBN;
 	}
@@ -99,10 +108,10 @@ public class BookDto
 	public void setBookPrice(float bookPrice) {
 		this.bookPrice = bookPrice;
 	}
-	public Date getPublicationDate() {
+	public String getPublicationDate() {
 		return publicationDate;
 	}
-	public void setPublicationDate(Date publicationDate) {
+	public void setPublicationDate(String publicationDate) {
 		this.publicationDate = publicationDate;
 	}
 	public int getIdCategory() {

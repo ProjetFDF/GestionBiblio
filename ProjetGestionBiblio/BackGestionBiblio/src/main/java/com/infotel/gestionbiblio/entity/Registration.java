@@ -23,8 +23,7 @@ public class Registration  implements Serializable
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idRegistration;
 	
-	@Temporal(TemporalType.DATE)
-	private Date date;
+	private String date;
 	
 	@ManyToOne
 	private Member member;
@@ -38,7 +37,7 @@ public class Registration  implements Serializable
 		// TODO Auto-generated constructor stub
 	}
 
-	public Registration( Date registrationDate, Member member, Library library) {
+	public Registration( String registrationDate, Member member, Library library) {
 		super();
 		this.date = registrationDate;
 		this.member = member;
@@ -53,11 +52,11 @@ public class Registration  implements Serializable
 		this.idRegistration = registrationId;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date registrationDate) {
+	public void setDate(String registrationDate) {
 		this.date = registrationDate;
 	}
 
@@ -76,5 +75,6 @@ public class Registration  implements Serializable
 	public void setLibrary(Library library) {
 		this.library = library;
 	}
+	
 
 }

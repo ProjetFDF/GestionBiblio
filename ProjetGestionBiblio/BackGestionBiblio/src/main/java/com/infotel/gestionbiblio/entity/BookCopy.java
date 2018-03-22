@@ -43,6 +43,10 @@ public class BookCopy implements Serializable
 	//	this.borrow = borrow;
 	}
 
+	public void setIdBookCopy(int idBookCopy) {
+		this.idBookCopy = idBookCopy;
+	}
+
 	public String getBookCopyTitle() {
 		return bookCopyTitle;
 	}

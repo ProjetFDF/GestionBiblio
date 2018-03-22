@@ -35,6 +35,8 @@ public class LibraryMapper {
 		}
 		
 		Library library = new Library(libraryDto.getCode(),libraryDto.getName(),libraryDto.getAddress(),registrations,books);
+		
+		library.setIdLibrary(libraryDto.getIdLibrary());
 
 		return library;
 	}
@@ -51,7 +53,11 @@ public class LibraryMapper {
 			bookIds.add(book.getIdBook());
 		}
 		
-		return new LibraryDto(library.getCode(),library.getName(),library.getAddress(),registrationIds,bookIds);
+		LibraryDto libraryDto = new LibraryDto(library.getCode(),library.getName(),library.getAddress(),registrationIds,bookIds);
+		
+		libraryDto.setIdLibrary(library.getIdLibrary());
+		
+		return libraryDto;
 	}
 
 

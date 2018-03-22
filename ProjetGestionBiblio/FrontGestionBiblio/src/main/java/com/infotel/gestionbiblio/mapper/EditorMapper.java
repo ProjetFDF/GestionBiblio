@@ -22,13 +22,18 @@ public class EditorMapper {
 		
 		Editor editor = new Editor(editorDto.getName(),editorDto.getAddress());
 
+		editor.setIdEditor(editorDto.getIdEditor());
 
 		return editor;
 	}
 
 	public EditorDto editorToDto(Editor editor) {
 
-		return new EditorDto(editor.getName(),editor.getAddress());
+		EditorDto editorDto = new EditorDto(editor.getName(),editor.getAddress());
+		
+		editorDto.setIdEditor(editorDto.getIdEditor());
+		
+		return editorDto;
 	}
 
 }

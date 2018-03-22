@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.infotel.gestionbiblio.dto.MemberDto;
+import com.infotel.gestionbiblio.dto.RegistrationDto;
 import com.infotel.gestionbiblio.entity.BookBasket;
 import com.infotel.gestionbiblio.entity.Borrow;
 import com.infotel.gestionbiblio.entity.Member;
@@ -44,6 +45,8 @@ public class MemberMapper {
 
 		Member member = new Member(memberDto.getLastname(),memberDto.getFirstname(),memberDto.getEmail(),memberDto.getPassword(),memberDto.getAddress(),memberDto.getCity(),memberDto.getPostalCode(),memberDto.getPhone(),memberDto.isAdministrateur(),bookBaskets,borrows);
  
+		member.setIdMember(memberDto.getIdMember());
+		
 		return member;
 	}
 
@@ -59,6 +62,12 @@ public class MemberMapper {
 			borrowIds.add(borrow.getIdBorrow());
 		}
 
-		return new MemberDto(member.getLastname(),member.getFirstname(),member.getEmail(),member.getPassword(),member.getAddress(),member.getCity(),member.getPostalCode(),member.getPhone(),member.isAdministrateur(),bookBasketIds,bookBasketIds);
+		
+		MemberDto memberDto = new MemberDto(member.getLastname(),member.getFirstname(),member.getEmail(),member.getPassword(),member.getAddress(),member.getCity(),member.getPostalCode(),member.getPhone(),member.isAdministrateur(),bookBasketIds,bookBasketIds);
+		
+		memberDto.setIdMember(member.getIdMember());
+		
+		return memberDto;
+		
 	}
 }

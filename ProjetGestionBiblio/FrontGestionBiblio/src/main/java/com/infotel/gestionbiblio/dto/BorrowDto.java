@@ -4,8 +4,8 @@ import java.util.Date;
 
 
 public class BorrowDto {
-	private Date borrowDate;
-    private Date returnDate;
+	private String borrowDate;
+    private String returnDate;
 	private int idBorrow;
 	private Integer idBookCopy;
 	
@@ -13,31 +13,31 @@ public class BorrowDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BorrowDto(Date borrowDate, Date returnDate, Integer idBookCopy) {
+	public BorrowDto(String borrowDate, String returnDate, Integer idBookCopy) {
 		this.borrowDate = borrowDate;
 		this.returnDate = returnDate;
 		this.idBookCopy = idBookCopy;
 	}
 
-	public BorrowDto(Date borrowDate, Date returnDate) {
+	public BorrowDto(String borrowDate, String returnDate) {
 		this.borrowDate = borrowDate;
 		this.returnDate = returnDate;
 
 	}
 
-	public Date getBorrowDate() {
+	public String getBorrowDate() {
 		return borrowDate;
 	}
 
-	public void setBorrowDate(Date borrowDate) {
+	public void setBorrowDate(String borrowDate) {
 		this.borrowDate = borrowDate;
 	}
 
-	public Date getReturnDate() {
+	public String getReturnDate() {
 		return returnDate;
 	}
 
-	public void setReturnDate(Date returnDate) {
+	public void setReturnDate(String returnDate) {
 		this.returnDate = returnDate;
 	}
 

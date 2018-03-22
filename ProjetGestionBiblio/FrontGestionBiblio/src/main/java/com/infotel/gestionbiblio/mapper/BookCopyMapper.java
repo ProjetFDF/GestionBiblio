@@ -25,13 +25,18 @@ public class BookCopyMapper {
 
 		BookCopy bookCopy = new BookCopy();
 
+		bookCopy.setIdBookCopy(bookCopyDto.getIdBookCopy());
 
 		return bookCopy;
 	}
 
 	public BookCopyDto bookCopyToDto(BookCopy bookCopy) {
-
-		return new BookCopyDto();
+		
+		BookCopyDto bookCopyDto = new BookCopyDto(bookCopy.getBookCopyTitle(),bookCopy.getBookshelf().getIdBookshelf(),bookCopy.getBook().getIdBook());
+		
+		bookCopyDto.setIdBookCopy(bookCopy.getIdBookCopy());
+		
+		return bookCopyDto;
 	}
 
 }

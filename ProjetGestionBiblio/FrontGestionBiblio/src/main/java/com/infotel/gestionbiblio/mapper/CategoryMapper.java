@@ -19,13 +19,18 @@ public class CategoryMapper {
 
 		Category category = new Category(categoryDto.getName(),categoryDto.getDescription());
 
+		category.setIdCategory(categoryDto.getIdCategory());
 
 		return category;
 	}
 
 	public CategoryDto categoryToDto(Category category) {
+		
+		CategoryDto categoryDto = new CategoryDto(category.getName(),category.getDescription());
 
-		return new CategoryDto(category.getName(),category.getDescription());
+		categoryDto.setIdCategory(category.getIdCategory());
+		
+		return categoryDto;
 	}
 
 }

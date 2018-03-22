@@ -22,13 +22,17 @@ public class BookshelfMapper {
 
 		Bookshelf bookshelf = new Bookshelf();
 
+		bookshelf.setIdBookshelf(bookshelfDto.getIdBookshelf());
 
 		return bookshelf;
 	}
 
 	public BookshelfDto bookshelfToDto(Bookshelf bookshelf) {
 
+		BookshelfDto bookshelfDto = new BookshelfDto(bookshelf.getName(),bookshelf.getDescription(),bookshelf.getBookNumber());
 
-		return new BookshelfDto();
+		bookshelfDto.setIdBookshelf(bookshelf.getIdBookshelf());
+		
+		return bookshelfDto;
 	}
 }

@@ -22,7 +22,7 @@ public class BookBasket implements Serializable
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idBookBasket;
-	private Date creationDate, deliveryDate;
+	private String creationDate, deliveryDate;
 
 	@OneToMany(fetch=FetchType.EAGER)
 	private List<BookCopy> bookCopys;
@@ -31,26 +31,26 @@ public class BookBasket implements Serializable
 		super();
 	}
 
-	public BookBasket(Date creationDate, Date deliveryDate, List<BookCopy> bookCopys) {
+	public BookBasket(String creationDate, String deliveryDate, List<BookCopy> bookCopys) {
 		super();
 		this.creationDate = creationDate;
 		this.deliveryDate = deliveryDate;
 		this.bookCopys = bookCopys;
 	}
 
-	public Date getCreationDate() {
+	public String getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(String creationDate) {
 		this.creationDate = creationDate;
 	}
 
-	public Date getDeliveryDate() {
+	public String getDeliveryDate() {
 		return deliveryDate;
 	}
 
-	public void setDeliveryDate(Date deliveryDate) {
+	public void setDeliveryDate(String deliveryDate) {
 		this.deliveryDate = deliveryDate;
 	}
 

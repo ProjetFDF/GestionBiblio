@@ -38,30 +38,77 @@ public class BookController {
 	BookMapper bookMapper;
 
 	@PostMapping("/add")
-	public void addBook(@RequestBody BookDto bookDto) {
+	public Resultat addBook(@RequestBody BookDto bookDto) {
 
-		bookService.insert(bookMapper.dtoToBook(bookDto));
+		Resultat result = new Resultat();
+		try 
+		{
+			
+			bookService.insert(bookMapper.dtoToBook(bookDto));
+			
+			result.setPayload(bookDto);
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
+		}
+		catch(Exception e)
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 	@PostMapping("/update")
-	public void updateBook(@RequestBody BookDto bookDto) 
+	public Resultat updateBook(@RequestBody BookDto bookDto) 
 	{
-		bookService.update(bookMapper.dtoToBook(bookDto));
+		Resultat result = new Resultat();
+		try 
+		{
+			
+			bookService.update(bookMapper.dtoToBook(bookDto));
+			
+			result.setPayload(bookDto);
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
+		}
+		catch(Exception e)
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 	@GetMapping("/getlist")
-	public List<BookDto> getBooks() 
+	public Resultat getBooks() 
 	{
-		List<BookDto> viewBooks = new ArrayList<BookDto>();
-
-		List<Book> books = bookService.getList();
-
-		for (Book book : books) {
+		Resultat result = new Resultat();
+		
+		try 
+		{
+			List<BookDto> viewBooks = new ArrayList<BookDto>();
+			List<Book> books = bookService.getList();
+			for (Book book : books) {
+				
+				viewBooks.add(bookMapper.bookToDto(book));
+			}
 			
-			viewBooks.add(bookMapper.bookToDto(book));
+			result.setPayload(viewBooks);
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
 		}
-
-		return viewBooks;
+		catch(Exception e)
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 	
 	@GetMapping("/get")
@@ -89,13 +136,13 @@ public class BookController {
 	    IOUtils.copy(in, response.getOutputStream());
 	}
 	
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public Resultat getBooksSearch(@RequestBody FiltresMultiplesVM filtres) throws IOException 
 	{
 		Resultat result = new Resultat();
 		try 
 		{
-			List<Integer> listeAuthorsId = filtres.getAuhtorIds();
+			List<Integer> listeAuthorsId = filtres.getAuthorIds();
 			List<Integer> listeEditorsId = filtres.getEditorsIds();
 			List<Integer> listeCategoriesId = filtres.getCategoryIds();
 			boolean recommande = filtres.isRecommande();

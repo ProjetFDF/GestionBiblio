@@ -17,12 +17,17 @@ public class BorowMapper {
 	public Borrow dtoToBorrow(BorrowDto borrowDto) {
 		Borrow borrow = new Borrow(borrowDto.getBorrowDate(),borrowDto.getReturnDate(),bookCopyService.getById(borrowDto.getIdBookCopy()));
 
+		borrow.setIdBorrow(borrowDto.getIdBorrow());
+		
 		return borrow;
 	}
 
 	public BorrowDto borrowToDto(Borrow borrow) {
-
-		return new BorrowDto(borrow.getBorrowDate(),borrow.getReturnDate(),borrow.getBookCopy().getIdBookCopy());
+		BorrowDto borrowDto = new BorrowDto(borrow.getBorrowDate(),borrow.getReturnDate(),borrow.getBookCopy().getIdBookCopy());
+		
+		borrowDto.setIdBorrow(borrow.getIdBorrow());
+		
+		return borrowDto;
 	}
 
 }

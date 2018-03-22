@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FiltresMultiplesVM 
 {
-	private List<Integer> auhtorIds;
+	private List<Integer> authorIds;
 	private List<Integer> editorsIds;
 	private List<Integer> categoryIds;
 	private boolean recommande;
@@ -18,15 +18,18 @@ public class FiltresMultiplesVM
 
 
 
-	public List<Integer> getAuhtorIds() {
-		return auhtorIds;
+
+	public List<Integer> getAuthorIds() {
+		return authorIds;
 	}
 
 
 
-	public void setAuhtorIds(List<Integer> auhtorIds) {
-		this.auhtorIds = auhtorIds;
+
+	public void setAuthorIds(List<Integer> authorIds) {
+		this.authorIds = authorIds;
 	}
+
 
 
 

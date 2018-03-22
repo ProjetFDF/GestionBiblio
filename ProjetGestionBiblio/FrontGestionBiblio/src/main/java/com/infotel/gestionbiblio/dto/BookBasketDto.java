@@ -6,12 +6,12 @@ import java.util.List;
 
 public class BookBasketDto {
 	private int idBookBasket;
-	private Date creationDate;
-	private Date deliveryDate;
+	private String creationDate;
+	private String deliveryDate;
 	private List<Integer> bookCopyIds;
 
 	
-	public BookBasketDto(Date creationDate, Date deliveryDate, List<Integer> bookCopyIds) {
+	public BookBasketDto(String creationDate, String deliveryDate, List<Integer> bookCopyIds) {
 		super();
 		this.creationDate = creationDate;
 		this.deliveryDate = deliveryDate;
@@ -34,22 +34,22 @@ public class BookBasketDto {
 	}
 
 
-	public Date getCreationDate() {
+	public String getCreationDate() {
 		return creationDate;
 	}
 
 
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(String creationDate) {
 		this.creationDate = creationDate;
 	}
 
 
-	public Date getDeliveryDate() {
+	public String getDeliveryDate() {
 		return deliveryDate;
 	}
 
 
-	public void setDeliveryDate(Date deliveryDate) {
+	public void setDeliveryDate(String deliveryDate) {
 		this.deliveryDate = deliveryDate;
 	}
 

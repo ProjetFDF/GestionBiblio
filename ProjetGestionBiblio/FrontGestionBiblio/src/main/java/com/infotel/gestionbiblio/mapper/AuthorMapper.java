@@ -29,6 +29,8 @@ public class AuthorMapper {
 		}
 
 		Author author = new Author(authorDto.getAuthorLastname(),authorDto.getAuthorFirstname(),books);
+		
+		author.setAuthorId(authorDto.getAuthorId());
 
 		return author;
 	}
@@ -40,8 +42,12 @@ public class AuthorMapper {
 		for (Book book : author.getBooks()) {
 			bookIds.add(book.getIdBook());
 		}
+		
+		AuthorDto authorDto = new AuthorDto(author.getAuthorLastname(), author.getAuthorFirstname(), bookIds);
+		
+		authorDto.setAuthorId(author.getAuthorId());
 
-		return new AuthorDto(author.getAuthorLastname(), author.getAuthorFirstname(), bookIds);
+		return authorDto;
 	}
 	
 }

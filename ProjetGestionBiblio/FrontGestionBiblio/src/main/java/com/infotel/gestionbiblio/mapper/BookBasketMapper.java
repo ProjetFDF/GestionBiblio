@@ -29,6 +29,8 @@ public class BookBasketMapper {
 
 		BookBasket bookBasket = new BookBasket(bookBasketDto.getCreationDate(),bookBasketDto.getDeliveryDate(),bookCopys);
 
+		bookBasket.setIdBookBasket(bookBasketDto.getIdBookBasket());
+		
 		return bookBasket;
 	}
 
@@ -39,7 +41,11 @@ public class BookBasketMapper {
 		for (BookCopy bookCopy : bookBasket.getBookCopys()) {
 			bookCopysIds.add(bookCopy.getIdBookCopy());
 		}
+		
+		BookBasketDto bookBasketDto = new BookBasketDto(bookBasket.getCreationDate(),bookBasket.getDeliveryDate(),bookCopysIds);
 
-		return new BookBasketDto(bookBasket.getCreationDate(),bookBasket.getDeliveryDate(),bookCopysIds);
+		bookBasketDto.setIdBookBasket(bookBasket.getIdBookBasket());
+		
+		return bookBasketDto;
 	}
 }

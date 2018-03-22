@@ -30,8 +30,7 @@ public class Book  implements Serializable
 	private boolean popularBook, periodicBook;
 	private float bookPrice;
 	
-	@Temporal(TemporalType.DATE)
-	private Date publicationDate;
+	private String publicationDate;
 
 	@ManyToOne
 	private Category category;
@@ -45,7 +44,7 @@ public class Book  implements Serializable
 	}
 
 	public Book(int iSBN, String bookTitre, String bookDescription, String imagePath, boolean popularBook,
-			boolean periodicBook, float bookPrice, Date publicationDate, Category category, Editor editor, List<Author> authors) 
+			boolean periodicBook, float bookPrice, String publicationDate, Category category, Editor editor, List<Author> authors) 
 	{
 		super();
 		ISBN = iSBN;
@@ -62,7 +61,7 @@ public class Book  implements Serializable
 	}
 	
 	public Book(int iSBN, String bookTitre, String bookDescription, String imagePath, boolean popularBook,
-			boolean periodicBook, float bookPrice, Date publicationDate) {
+			boolean periodicBook, float bookPrice, String publicationDate) {
 		super();
 		ISBN = iSBN;
 		this.bookTitre = bookTitre;
@@ -130,11 +129,11 @@ public class Book  implements Serializable
 		this.bookPrice = bookPrice;
 	}
 
-	public Date getPublicationDate() {
+	public String getPublicationDate() {
 		return publicationDate;
 	}
 
-	public void setPublicationDate(Date publicationDate) {
+	public void setPublicationDate(String publicationDate) {
 		this.publicationDate = publicationDate;
 	}
 
@@ -161,7 +160,12 @@ public class Book  implements Serializable
 	public void setAuthors(List<Author> authors) {
 		this.authors = authors;
 	}
+	
 
+
+	public void setIdBook(int idBook) {
+		this.idBook = idBook;
+	}
 
 	public int getIdBook() {
 		return idBook;

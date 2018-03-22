@@ -64,6 +64,10 @@ public class Author implements Serializable {
 	public int getAuthorId() {
 		return authorId;
 	}
+	
+	public void setAuthorId(int authorId) {
+		this.authorId = authorId;
+	}
 
 	@Override
 	public String toString() {

@@ -20,8 +20,7 @@ public class Borrow implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Temporal(TemporalType.DATE)
-	private Date borrowDate, returnDate;
+	private String borrowDate, returnDate;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -35,7 +34,7 @@ public class Borrow implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Borrow(Date borrowDate, Date returnDate, BookCopy bookCopy) {
+	public Borrow(String borrowDate, String returnDate, BookCopy bookCopy) {
 		super();
 		this.borrowDate = borrowDate;
 		this.returnDate = returnDate;
@@ -43,29 +42,25 @@ public class Borrow implements Serializable{
 		this.bookCopy = bookCopy;
 	}
 
-	public Date getBorrowDate() {
+	public String getBorrowDate() {
 		return borrowDate;
 	}
 
-	public void setBorrowDate(Date borrowDate) {
+	public void setIdBorrow(int idBorrow) {
+		this.idBorrow = idBorrow;
+	}
+
+	public void setBorrowDate(String borrowDate) {
 		this.borrowDate = borrowDate;
 	}
 
-	public Date getReturnDate() {
+	public String getReturnDate() {
 		return returnDate;
 	}
 
-	public void setReturnDate(Date returnDate) {
+	public void setReturnDate(String returnDate) {
 		this.returnDate = returnDate;
 	}
-
-/*	public Member getMember() {
-		return member;
-	}
-
-	public void setMember(Member member) {
-		this.member = member;
-	}*/
 
 	public BookCopy getBookCopy() {
 		return bookCopy;
