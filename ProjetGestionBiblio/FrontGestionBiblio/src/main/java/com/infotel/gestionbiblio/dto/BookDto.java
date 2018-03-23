@@ -1,6 +1,5 @@
 package com.infotel.gestionbiblio.dto;
 
-import java.util.Date;
 import java.util.List;
 
 
@@ -55,22 +54,17 @@ public class BookDto
 		this.categoryId = categoryId;
 		this.editorId = editorId;
 	}
-	
-
-	public int getEditorId() {
-		return editorId;
-	}
-	public void setEditorId(int editorId) {
-		this.editorId = editorId;
+	public int getIdBook() {
+		return idBook;
 	}
 	public void setIdBook(int idBook) {
 		this.idBook = idBook;
 	}
 	public int getISBN() {
-		return this.ISBN;
+		return ISBN;
 	}
 	public void setISBN(int iSBN) {
-		this.ISBN = iSBN;
+		ISBN = iSBN;
 	}
 	public String getBookTitre() {
 		return bookTitre;
@@ -114,26 +108,23 @@ public class BookDto
 	public void setPublicationDate(String publicationDate) {
 		this.publicationDate = publicationDate;
 	}
-	public int getIdCategory() {
+	public int getCategoryId() {
 		return categoryId;
 	}
-	public void setIdCategory(int idCategory) {
-		this.categoryId = idCategory;
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
-	public int getIdEditor() {
+	public int getEditorId() {
 		return editorId;
 	}
-	public void setIdEditor(int idEditor) {
-		this.editorId = idEditor;
+	public void setEditorId(int editorId) {
+		this.editorId = editorId;
 	}
 	public List<Integer> getAuthorIds() {
 		return authorIds;
 	}
-	public void setAuthorIds(List<Integer> idAuthor) {
-		this.authorIds = idAuthor;
-	}
-	public int getIdBook() {
-		return idBook;
+	public void setAuthorIds(List<Integer> authorIds) {
+		this.authorIds = authorIds;
 	}
 
 	

@@ -39,6 +39,7 @@ public class BookMapper {
 
 	public Book dtoToBook(BookDto bookDto) {
 		List<Author> authors = new ArrayList<Author>();
+		
 		for (int authorId : bookDto.getAuthorIds()) {
 			authors.add(authorService.getById(authorId));
 		}
@@ -47,8 +48,8 @@ public class BookMapper {
 				bookDto.getImagePath(), bookDto.isPopularBook(), bookDto.isPeriodicBook(), bookDto.getBookPrice(),
 				bookDto.getPublicationDate());
 
-		book.setEditor(editorService.getById(bookDto.getIdEditor()));
-		book.setCategory(categoryService.getById(bookDto.getIdCategory()));
+		book.setEditor(editorService.getById(bookDto.getEditorId()));
+		book.setCategory(categoryService.getById(bookDto.getCategoryId()));
 		book.setAuthors(authors);
 		
 		book.setIdBook(bookDto.getIdBook());
