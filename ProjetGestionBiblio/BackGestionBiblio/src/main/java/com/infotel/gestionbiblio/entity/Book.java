@@ -36,7 +36,7 @@ public class Book  implements Serializable
 	private Category category;
 	@ManyToOne
 	private Editor editor;
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	private List<Author> authors;
 
 	public Book() {

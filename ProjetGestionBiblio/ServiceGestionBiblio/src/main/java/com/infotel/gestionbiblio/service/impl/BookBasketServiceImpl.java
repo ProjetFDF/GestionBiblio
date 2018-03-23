@@ -50,17 +50,12 @@ public class BookBasketServiceImpl implements BookBasketService {
 	}
 	
 	@Override
-	public List<Book> getListByIdMember(int memberId)
+	public List<BookBasket> getListByIdMember(int memberId)
 	{
 		List<BookBasket> bookBaskets = memberDao.getById(memberId).getBookBaskets();
-		List<Book> books = new ArrayList<Book>();
 		
-		for(BookBasket bookBasket : bookBaskets)
-		{
-			books.add(bookBasket.getBookCopy().getBook());
-		}
 
-		return books;
+		return bookBaskets;
 	}
 
 

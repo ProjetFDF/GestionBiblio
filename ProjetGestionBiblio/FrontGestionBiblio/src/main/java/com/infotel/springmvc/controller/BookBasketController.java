@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.gestionbiblio.dto.BookBasketDto;
@@ -24,6 +25,7 @@ import com.infotel.gestionbiblio.service.inter.BookService;
 import com.infotel.gestionbiblio.service.inter.MemberService;
 import com.infotel.gestionbiblio.utils.ControllerConstante;
 import com.infotel.gestionbiblio.utils.Resultat;
+import com.infotel.gestionbiblio.viewmodel.BookBasketFull;
 
 @RestController
 @RequestMapping("/bookbasket")
@@ -75,17 +77,29 @@ public class BookBasketController
 	}
 	
 	@PostMapping("/getlistbyidmember")
-	public Resultat getBookBasketsByMember(@RequestBody MemberDto memberDto) 
+	public Resultat getBookBasketsByMember(@RequestBody int memberId) 
 	{
 		Resultat result = new Resultat();
 		
-		List<Book> viewBooks = new ArrayList<Book>();
+		List<BookBasket> viewBookBaskets = new ArrayList<BookBasket>();
+		List<BookBasketFull> bookbasketsFull = new ArrayList<BookBasketFull>();
 		
 		try 
 		{
-			viewBooks = bookBasketService.getListByIdMember(memberDto.getIdMember());
+			viewBookBaskets = bookBasketService.getListByIdMember(memberId);
+			
+			int i =0;
+			
+			for(BookBasket bookbasket : viewBookBaskets )
+			{
+				bookbasketsFull.add(new BookBasketFull());
+				bookbasketsFull.get(i).setBookBasket(bookbasket);
+				bookbasketsFull.get(i).setBook(bookCopyService.getById(bookbasket.getBookCopy().getIdBookCopy()).getBook());
+				bookbasketsFull.get(i).setMemberId(memberId);
+				i++;
+			}
 
-			result.setPayload(viewBooks);
+			result.setPayload(bookbasketsFull);
 			result.setMessage(ControllerConstante.LIST_SUCCESS);
 			result.setSuccess(true);
 		}
@@ -99,6 +113,7 @@ public class BookBasketController
 		return result;
 	}
 	
+		
 	@GetMapping("/get")
 	public BookBasketDto getBookBasket(int id) 
 	{
