@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.infotel.gestionbiblio.dto.CategoryDto;
 import com.infotel.gestionbiblio.entity.Category;
-import com.infotel.gestionbiblio.exception.ServiceException;
 import com.infotel.gestionbiblio.mapper.CategoryMapper;
 import com.infotel.gestionbiblio.service.inter.CategoryService;
 import com.infotel.gestionbiblio.utils.ControllerConstante;

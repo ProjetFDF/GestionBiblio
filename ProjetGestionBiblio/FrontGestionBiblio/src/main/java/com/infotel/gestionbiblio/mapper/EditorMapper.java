@@ -31,7 +31,7 @@ public class EditorMapper {
 
 		EditorDto editorDto = new EditorDto(editor.getName(),editor.getAddress());
 		
-		editorDto.setIdEditor(editorDto.getIdEditor());
+		editorDto.setIdEditor(editor.getIdEditor());
 		
 		return editorDto;
 	}

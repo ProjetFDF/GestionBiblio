@@ -44,7 +44,7 @@ public class BookMapper {
 			authors.add(authorService.getById(authorId));
 		}
 
-		Book book = new Book(bookDto.getISBN(), bookDto.getBookTitre(), bookDto.getBookDescription(),
+		Book book = new Book(bookDto.getIsbn(), bookDto.getBookTitre(), bookDto.getBookDescription(),
 				bookDto.getImagePath(), bookDto.isPopularBook(), bookDto.isPeriodicBook(), bookDto.getBookPrice(),
 				bookDto.getPublicationDate());
 

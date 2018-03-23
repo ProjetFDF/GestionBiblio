@@ -7,7 +7,7 @@ public class BookDto
 {
 	//Attibuts simple
 	private int idBook;
-	private int ISBN;
+	private int isbn;
 	private String bookTitre, bookDescription, imagePath;
 	private boolean popularBook, periodicBook;
 	private float bookPrice;
@@ -22,12 +22,12 @@ public class BookDto
 	{
 		super();
 	}
-	public BookDto(int iSBN, String bookTitre, String bookDescription, String imagePath, boolean popularBook,
+	public BookDto(int isbn, String bookTitre, String bookDescription, String imagePath, boolean popularBook,
 			boolean periodicBook, float bookPrice, String publicationDate, int idCategory, int idEditor,
 			List<Integer> authorIds) 
 	{
 		super();
-		this.ISBN = iSBN;
+		this.isbn = isbn;
 		this.bookTitre = bookTitre;
 		this.bookDescription = bookDescription;
 		this.imagePath = imagePath;
@@ -40,10 +40,10 @@ public class BookDto
 		this.authorIds = authorIds;
 	}
 	
-	public BookDto(int iSBN, String bookTitre, String bookDescription, String imagePath, boolean popularBook,
+	public BookDto(int isbn, String bookTitre, String bookDescription, String imagePath, boolean popularBook,
 			boolean periodicBook, float bookPrice, String publicationDate, int categoryId, int editorId) {
 		super();
-		ISBN = iSBN;
+		this.isbn = isbn;
 		this.bookTitre = bookTitre;
 		this.bookDescription = bookDescription;
 		this.imagePath = imagePath;
@@ -60,11 +60,11 @@ public class BookDto
 	public void setIdBook(int idBook) {
 		this.idBook = idBook;
 	}
-	public int getISBN() {
-		return ISBN;
+	public int getIsbn() {
+		return isbn;
 	}
-	public void setISBN(int iSBN) {
-		ISBN = iSBN;
+	public void setIsbn(int isbn) {
+		this.isbn = isbn;
 	}
 	public String getBookTitre() {
 		return bookTitre;
