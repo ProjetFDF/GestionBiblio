@@ -3,6 +3,9 @@ package com.infotel.springmvc.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -87,12 +90,14 @@ public class MemberController {
 	}
     
 	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
-	public Resultat loginPage(@RequestBody IndentifiantsVM identifiant) 
+	public Resultat loginPage(@RequestBody IndentifiantsVM identifiant, HttpServletRequest request) 
 	{
 		Resultat result = new Resultat();
 		
 		try 
 		{
+			HttpSession session = request.getSession();
+			session.setAttribute("USER", "Ton user");
 			result.setPayload(memberMapper.memberToDto(memberService.getMemberByLogin(identifiant.getEmail(), identifiant.getPassword())));
 			result.setMessage(ControllerConstante.LOGIN_SUCCESS);
 			result.setSuccess(true);
@@ -103,6 +108,29 @@ public class MemberController {
 			result.setMessage(se.getMessage());
 			se.printStackTrace();
 		}
+		catch (Exception e) 
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LOGIN_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	@RequestMapping(value = { "/logout" }, method = RequestMethod.POST)
+	public Resultat logoutPage(HttpServletRequest request) 
+	{
+		Resultat result = new Resultat();
+		
+		try 
+		{
+			HttpSession session = request.getSession();
+			session.invalidate();
+			result.setPayload("Logout OK");
+			result.setMessage(ControllerConstante.LOGIN_SUCCESS);
+			result.setSuccess(true);
+		} 
 		catch (Exception e) 
 		{
 			result.setSuccess(false);

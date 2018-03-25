@@ -19,9 +19,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.infotel.gestionbiblio.dto.AuthorDto;
 import com.infotel.gestionbiblio.dto.BookDto;
+import com.infotel.gestionbiblio.entity.Author;
 import com.infotel.gestionbiblio.entity.Book;
+import com.infotel.gestionbiblio.mapper.AuthorMapper;
 import com.infotel.gestionbiblio.mapper.BookMapper;
+import com.infotel.gestionbiblio.mapper.EditorMapper;
 import com.infotel.gestionbiblio.service.inter.BookService;
 import com.infotel.gestionbiblio.utils.ControllerConstante;
 import com.infotel.gestionbiblio.utils.Resultat;
@@ -36,6 +40,12 @@ public class BookController {
 
 	@Autowired
 	BookMapper bookMapper;
+	
+	@Autowired
+	AuthorMapper authorMapper;
+	
+	@Autowired
+	EditorMapper editorMapper;
 
 	@PostMapping("/add")
 	public Resultat addBook(@RequestBody BookDto bookDto) {
@@ -97,6 +107,58 @@ public class BookController {
 			}
 			
 			result.setPayload(viewBooks);
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
+		}
+		catch(Exception e)
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	@PostMapping("/getlistauthorbyidbook")
+	public Resultat getListAuthorByBookId(@RequestBody int idBook) 
+	{
+		Resultat result = new Resultat();
+		
+		try 
+		{
+			List<AuthorDto> viewAuthors = new ArrayList<AuthorDto>();
+			Book book = bookService.getById(idBook);
+			for (Author author : book.getAuthors()) {
+				
+				viewAuthors.add(authorMapper.authorToDto(author));
+			}
+			
+			result.setPayload(viewAuthors);
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
+		}
+		catch(Exception e)
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	@PostMapping("/geteditorbyidbook")
+	public Resultat geEditorByBookId(@RequestBody int idBook) 
+	{
+		Resultat result = new Resultat();
+		
+		try 
+		{
+			Book book = bookService.getById(idBook);
+			
+			
+			result.setPayload(editorMapper.editorToDto(book.getEditor()));
 			result.setMessage(ControllerConstante.LIST_SUCCESS);
 			result.setSuccess(true);
 		}

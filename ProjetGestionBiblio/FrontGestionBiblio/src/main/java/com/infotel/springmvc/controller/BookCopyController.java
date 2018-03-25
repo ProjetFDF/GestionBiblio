@@ -11,14 +11,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.infotel.gestionbiblio.dto.AuthorDto;
 import com.infotel.gestionbiblio.dto.BookCopyDto;
 import com.infotel.gestionbiblio.dto.BookDto;
+import com.infotel.gestionbiblio.entity.Author;
 import com.infotel.gestionbiblio.entity.Book;
 import com.infotel.gestionbiblio.entity.BookCopy;
 import com.infotel.gestionbiblio.mapper.BookCopyMapper;
 import com.infotel.gestionbiblio.mapper.BookMapper;
 import com.infotel.gestionbiblio.service.inter.BookCopyService;
 import com.infotel.gestionbiblio.service.inter.BookService;
+import com.infotel.gestionbiblio.utils.ControllerConstante;
+import com.infotel.gestionbiblio.utils.Resultat;
 
 @RestController
 @RequestMapping("/bookCopy")
@@ -26,9 +30,13 @@ public class BookCopyController
 {
 	@Autowired
 	BookCopyService bookCopyService;
+
 	
 	@Autowired
 	BookCopyMapper bookCopyMapper;
+	
+	@Autowired
+	BookMapper bookMapper;
 
 	@PostMapping("/add")
 	public void addBookCopy(@RequestBody BookCopyDto bookCopyDto) {
@@ -66,6 +74,31 @@ public class BookCopyController
 
 		return bookCopyDto;
 	}
+	
+	@PostMapping("/getbookbyidcopy")
+	public Resultat getListAuthorByBookId(@RequestBody int idBookCopy) 
+	{
+		Resultat result = new Resultat();
+		
+		try 
+		{
+			BookCopy bookCopy = bookCopyService.getById(idBookCopy);
+			
+			
+			result.setPayload(bookMapper.bookToDto(bookCopy.getBook()));
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
+		}
+		catch(Exception e)
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	
 	@GetMapping("/delete")
 	public void deleteBookCopy(int id) 

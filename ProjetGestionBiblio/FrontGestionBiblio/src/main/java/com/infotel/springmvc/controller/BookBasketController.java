@@ -76,7 +76,8 @@ public class BookBasketController
 		return viewBooks;
 	}
 	
-	@PostMapping("/getlistbyidmember")
+	/*
+	@PostMapping("/getlisteditorbyidbook")
 	public Resultat getBookBasketsByMember(@RequestBody int memberId) 
 	{
 		Resultat result = new Resultat();
@@ -112,8 +113,33 @@ public class BookBasketController
 		
 		return result;
 	}
-	
+	*/
+	@PostMapping("/getlistbyidmember")
+	public Resultat GetListBookBasketByMember(@RequestBody int idMember)
+	{
+		Resultat result = new Resultat();
 		
+		List<BookBasket> viewBookBaskets = new ArrayList<BookBasket>();
+		
+		try 
+		{
+			viewBookBaskets = bookBasketService.getListByIdMember(idMember);
+			
+			result.setPayload(viewBookBaskets);
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
+		}
+		catch(Exception e)
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	
 	@GetMapping("/get")
 	public BookBasketDto getBookBasket(int id) 
 	{

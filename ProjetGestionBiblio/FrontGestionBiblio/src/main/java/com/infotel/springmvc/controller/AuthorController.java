@@ -82,16 +82,6 @@ public class AuthorController {
 		return authorDto;
 	}
 	
-	@GetMapping("/getName")
-	public String getAuthorName(@RequestParam int id) 
-	{
-		Author author = authorService.getById(id);
-
-		AuthorDto authorDto = authorMapper.authorToDto(author);
-
-		return ""+authorDto.getAuthorLastname()+" "+authorDto.getAuthorFirstname() ;
-	}
-	
 	@GetMapping("/delete")
 	public void deleteAuthor(int id) 
 	{
