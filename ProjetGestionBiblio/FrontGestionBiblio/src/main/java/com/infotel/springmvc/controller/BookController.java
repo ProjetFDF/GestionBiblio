@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +33,7 @@ import com.infotel.gestionbiblio.utils.Resultat;
 import com.infotel.gestionbiblio.viewmodel.FiltresMultiplesVM;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/book")
 public class BookController {
 
@@ -121,14 +123,14 @@ public class BookController {
 	}
 	
 	@PostMapping("/getlistauthorbyidbook")
-	public Resultat getListAuthorByBookId(@RequestBody int idBook) 
+	public Resultat getListAuthorByBookId(@RequestBody BookDto bookDto) 
 	{
 		Resultat result = new Resultat();
 		
 		try 
 		{
 			List<AuthorDto> viewAuthors = new ArrayList<AuthorDto>();
-			Book book = bookService.getById(idBook);
+			Book book = bookService.getById(bookDto.getIdBook());
 			for (Author author : book.getAuthors()) {
 				
 				viewAuthors.add(authorMapper.authorToDto(author));
@@ -149,13 +151,13 @@ public class BookController {
 	}
 	
 	@PostMapping("/geteditorbyidbook")
-	public Resultat geEditorByBookId(@RequestBody int idBook) 
+	public Resultat geEditorByBookId(@RequestBody BookDto bookDto) 
 	{
 		Resultat result = new Resultat();
 		
 		try 
 		{
-			Book book = bookService.getById(idBook);
+			Book book = bookService.getById(bookDto.getIdBook());
 			
 			
 			result.setPayload(editorMapper.editorToDto(book.getEditor()));

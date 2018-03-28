@@ -2,18 +2,20 @@ package com.infotel.springmvc.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import com.infotel.config.ConteneurSpringFullJava;
+
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer 
 {
 	@Override
 	protected Class<?>[] getRootConfigClasses() 
 	{
-		return new Class[] { AppConfig.class };
+		return new Class[] { ConteneurSpringFullJava.class };
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() 
 	{
-		return null;
+		return new Class[] { AppConfig.class };
 	}
 
 	@Override
@@ -21,4 +23,5 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	{
 		return new String[] { "/" };
 	}
+	
 }

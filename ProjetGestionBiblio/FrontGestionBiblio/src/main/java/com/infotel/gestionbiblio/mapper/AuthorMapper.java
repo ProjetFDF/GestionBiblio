@@ -23,12 +23,13 @@ public class AuthorMapper {
 	
 	public Author dtoToAuthor(AuthorDto authorDto) {
 		
-		List<Book> books = new ArrayList<Book>();
-		for (int bookId : authorDto.getBookIds()) {
-			books.add(bookService.getById(bookId));
-		}
+//		List<Book> books = new ArrayList<Book>();
+//		for (int bookId : authorDto.getBookIds()) {
+//			books.add(bookService.getById(bookId));
+//		}
 
-		Author author = new Author(authorDto.getAuthorLastname(),authorDto.getAuthorFirstname(),books);
+		Author author = new Author(authorDto.getAuthorLastname(),authorDto.getAuthorFirstname());
+		//Author author = new Author(authorDto.getAuthorLastname(),authorDto.getAuthorFirstname(),books);
 		
 		author.setAuthorId(authorDto.getAuthorId());
 
@@ -37,13 +38,14 @@ public class AuthorMapper {
 
 	public AuthorDto authorToDto(Author author) {
 		
-		List<Integer> bookIds = new ArrayList<Integer>();
+//		List<Integer> bookIds = new ArrayList<Integer>();
 
-		for (Book book : author.getBooks()) {
-			bookIds.add(book.getIdBook());
-		}
+//		for (Book book : author.getBooks()) {
+//			bookIds.add(book.getIdBook());
+//		}
 		
-		AuthorDto authorDto = new AuthorDto(author.getAuthorLastname(), author.getAuthorFirstname(), bookIds);
+		AuthorDto authorDto = new AuthorDto(author.getAuthorLastname(), author.getAuthorFirstname());
+//		AuthorDto authorDto = new AuthorDto(author.getAuthorLastname(), author.getAuthorFirstname(), bookIds);
 		
 		authorDto.setAuthorId(author.getAuthorId());
 

@@ -76,13 +76,13 @@ public class BookCopyController
 	}
 	
 	@PostMapping("/getbookbyidcopy")
-	public Resultat getListAuthorByBookId(@RequestBody int idBookCopy) 
+	public Resultat getListAuthorByBookId(@RequestBody BookCopyDto bookCopyDto) 
 	{
 		Resultat result = new Resultat();
 		
 		try 
 		{
-			BookCopy bookCopy = bookCopyService.getById(idBookCopy);
+			BookCopy bookCopy = bookCopyService.getById(bookCopyDto.getIdBookCopy());
 			
 			
 			result.setPayload(bookMapper.bookToDto(bookCopy.getBook()));

@@ -75,55 +75,20 @@ public class BookBasketController
 
 		return viewBooks;
 	}
-	
-	/*
-	@PostMapping("/getlisteditorbyidbook")
-	public Resultat getBookBasketsByMember(@RequestBody int memberId) 
-	{
-		Resultat result = new Resultat();
-		
-		List<BookBasket> viewBookBaskets = new ArrayList<BookBasket>();
-		List<BookBasketFull> bookbasketsFull = new ArrayList<BookBasketFull>();
-		
-		try 
-		{
-			viewBookBaskets = bookBasketService.getListByIdMember(memberId);
-			
-			int i =0;
-			
-			for(BookBasket bookbasket : viewBookBaskets )
-			{
-				bookbasketsFull.add(new BookBasketFull());
-				bookbasketsFull.get(i).setBookBasket(bookbasket);
-				bookbasketsFull.get(i).setBook(bookCopyService.getById(bookbasket.getBookCopy().getIdBookCopy()).getBook());
-				bookbasketsFull.get(i).setMemberId(memberId);
-				i++;
-			}
 
-			result.setPayload(bookbasketsFull);
-			result.setMessage(ControllerConstante.LIST_SUCCESS);
-			result.setSuccess(true);
-		}
-		catch(Exception e)
-		{
-			result.setSuccess(false);
-			result.setMessage(ControllerConstante.LIST_ERROR);
-			e.printStackTrace();
-		}
-		
-		return result;
-	}
-	*/
 	@PostMapping("/getlistbyidmember")
-	public Resultat GetListBookBasketByMember(@RequestBody int idMember)
+	public Resultat GetListBookBasketByMember(@RequestBody MemberDto memberDto)
 	{
 		Resultat result = new Resultat();
 		
-		List<BookBasket> viewBookBaskets = new ArrayList<BookBasket>();
+		List<BookBasketDto> viewBookBaskets = new ArrayList<BookBasketDto>();
 		
 		try 
 		{
-			viewBookBaskets = bookBasketService.getListByIdMember(idMember);
+			for(BookBasket bookBasket: bookBasketService.getListByIdMember(memberDto.getIdMember()))
+			{
+				viewBookBaskets.add(bookBasketMapper.bookBasketToDto(bookBasket));
+			}
 			
 			result.setPayload(viewBookBaskets);
 			result.setMessage(ControllerConstante.LIST_SUCCESS);
@@ -141,13 +106,27 @@ public class BookBasketController
 	
 	
 	@GetMapping("/get")
-	public BookBasketDto getBookBasket(int id) 
+	public Resultat getBookBasket(int id) 
 	{
-		BookBasket bookBasket = bookBasketService.getById(id);
-
-		BookBasketDto bookBasketDto = bookBasketMapper.bookBasketToDto(bookBasket);
-
-		return bookBasketDto;
+		Resultat result = new Resultat();
+				
+		try 
+		{
+			BookBasket bookBasket = bookBasketService.getById(id);
+			
+			result.setPayload(bookBasket);
+			result.setMessage(ControllerConstante.LIST_SUCCESS);
+			result.setSuccess(true);
+		}
+		catch(Exception e)
+		{
+			result.setSuccess(false);
+			result.setMessage(ControllerConstante.LIST_ERROR);
+			e.printStackTrace();
+		}
+		
+		return result;
+		
 	}
 	
 	@GetMapping("/delete")

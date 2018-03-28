@@ -1,22 +1,17 @@
 package com.infotel.gestionbiblio.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 public class Book  implements Serializable
@@ -36,7 +31,11 @@ public class Book  implements Serializable
 	private Category category;
 	@ManyToOne
 	private Editor editor;
+	
 	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name="book_author", 
+			   joinColumns=@JoinColumn(name="books_idbook"), 
+			   inverseJoinColumns=@JoinColumn(name="authors_authorid"))
 	private List<Author> authors;
 
 	public Book() {

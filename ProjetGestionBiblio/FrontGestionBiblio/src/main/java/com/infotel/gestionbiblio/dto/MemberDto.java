@@ -24,7 +24,6 @@ public class MemberDto
 	
 	public MemberDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public MemberDto(String memberLastname, String memberFirstname, String memberEmail, String memberPassword,
 			String memberAddress, String memberCity, String memberPostalCode, String memberPhone,

@@ -38,7 +38,7 @@ public class Member  implements Serializable
 	
 	@OneToMany
 	private List<Borrow> borrows;
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany
 	private List<BookBasket> bookBaskets;
 
 	public Member() {

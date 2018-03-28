@@ -44,6 +44,20 @@ public class MemberDaoImpl extends CommonDaoImpl<Member> implements MemberDao {
 		}
 		return memberList;
 	}
+	
+
+	@Override
+	public Member getById(int id) 
+	{
+		Member member = super.getById(id);
+		if(member!=null)
+		{
+			Hibernate.initialize(member.getBorrows());
+			Hibernate.initialize(member.getBookBaskets());
+
+		}
+		return member;
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override

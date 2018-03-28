@@ -61,16 +61,15 @@ public class ConteneurSpringFullJava {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
-    Properties hibernateProperties() {
-        return new Properties() {
-			private static final long serialVersionUID = 1L;
-
-			{
-                setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-                setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
-                setProperty("hibernate.globally_quoted_identifiers", "true");
-            }
-        };
+    private Properties hibernateProperties() {
+    	Properties props = new Properties();
+		//props.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+		props.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+		props.setProperty("hibernate.globally_quoted_identifiers", "true");
+		props.setProperty("hibernate.show_sql", "true");
+		props.setProperty("hibernate.format_sql", "true");
+                
+        return props;
     }
     
 
