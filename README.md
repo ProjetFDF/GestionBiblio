@@ -1,2 +1,2 @@
 # GestionBiblio
-Projet fin de foramtion infotel mars 2018 - Gwen &amp; Mick
+Projet fin de formation infotel mars 2018 - Gwen &amp; Mick
