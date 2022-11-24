@@ -19,7 +19,7 @@
 		<spring.version>4.3.10.RELEASE</spring.version>
 
 		<!-- Hibernate / JPA -->
-		<hibernate.version>5.2.12.Final</hibernate.version>
+		<hibernate.version>5.3.20.Final</hibernate.version>
 		<!-- MYSQL 6 -->
 		<mysql.version>5.1.45</mysql.version>
 
